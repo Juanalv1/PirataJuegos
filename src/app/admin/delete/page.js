@@ -13,7 +13,7 @@ const { token } = useUser()
 console.log(token)
 
 const HandleClick = () => {
-  fetch(`http://localhost:3001/api/posts/${title}`,{ 
+  fetch(`http://192.168.1.27:3001/api/posts/${title}`,{ 
     method: 'DELETE',
     'Authorization': `Bearer ${token}`,
   })

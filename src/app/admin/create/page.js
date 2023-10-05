@@ -77,7 +77,7 @@ const CrearPublicacion = () => {
 
   useEffect(() => {
     // Realiza una solicitud a la API para obtener las categorías
-    fetch('http://localhost:3001/api/categories')
+    fetch('http://192.168.1.27:3001/api/categories')
       .then(res => res.json())
       .then((data) => {
         console.log(data)

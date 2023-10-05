@@ -8,7 +8,7 @@ export default async function titulo ({ params }) {
   const { titulo } = params // "id" debe coincidir con el nombre del parámetro en la URL
 
   const fetchData = async () => {
-   const res = await fetch(`http://localhost:3001/api/posts/${titulo}`)
+   const res = await fetch(`http://192.168.1.27:3001/api/posts/${titulo}`)
    return res.json()
   }
   let juego = await fetchData()

@@ -13,7 +13,7 @@ export default function SearchBar () {
   }, []);
   const fetchData = async () => {
     try {
-      const res = await fetch('http://192.168.1.27:3001/api/posts');
+      const res = await fetch('https://pirataback.vercel.app/api/posts');
       const data = await res.json();
       setResults(data);
     } catch (error) {

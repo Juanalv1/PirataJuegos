@@ -1,7 +1,7 @@
 import Card from "./card"
 export default async function ListaJuegos () {
   const fetchData = async () => {
-    const res = await fetch('http://192.168.1.27:3001/api/posts')
+    const res = await fetch('https://pirataback.vercel.app/api/posts')
     return await res.json()
   
   }

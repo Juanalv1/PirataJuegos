@@ -77,7 +77,7 @@ const CrearPublicacion = () => {
 
   useEffect(() => {
     // Realiza una solicitud a la API para obtener las categorías
-    fetch('http://192.168.1.27:3001/api/categories')
+    fetch('https://pirataback.vercel.app/api/categories')
       .then(res => res.json())
       .then((data) => {
         console.log(data)
@@ -121,7 +121,7 @@ const CrearPublicacion = () => {
     e.preventDefault()
     console.log(formData)
     try {
-      const response = await fetch('http://localhost:3001/api/posts', {
+      const response = await fetch('https://pirataback.vercel.app/api/posts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

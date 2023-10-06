@@ -1,4 +1,4 @@
-
+import Image from 'next/image'
 import Link from "next/link"
 import SearchBar from "./SearchBar"
 
@@ -7,7 +7,7 @@ export default function navbar () {
     <div className="bg-[#FFC93C] p-2 flex justify-between items-center px-4 border-b border-b-black ">
      <div>
       <Link href={'/'}>
-      <img src="/Logo.svg" className="w-20 h-12"/>
+      <Image src="/Logo.svg" className="w-20 h-12"/>
       </Link>
       </div>
       <SearchBar />

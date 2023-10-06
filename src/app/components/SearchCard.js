@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function SearchCard({image, title}) {
   return (
@@ -9,7 +10,7 @@ export default function SearchCard({image, title}) {
           <h3 className='font-semibold'>{title}</h3>
         </div>
         <div className='w-[40%] h-[90%]'>
-          <img src={image} className='w-full'/>
+          <Image src={image} className='w-full'/>
         </div>
       </div>
     </Link>

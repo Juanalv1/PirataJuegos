@@ -1,6 +1,5 @@
-"use client"
 
-import { useEffect, useState } from "react"
+
 import {HiDownload} from "react-icons/hi"
 import Carrusel from "./Carrusel"
 
@@ -10,7 +9,7 @@ export default function GamePage ({titulo, categoria, imagen, contenido, peso, i
 {
   const formattedRequirements = JSON.parse(requirements);
    // Elimina el primer elemento del array de imágenes
-   const imageList = imagen.slice(1);
+   const imageList = [...imagen.slice(1)];
 
   return(
     <div className="w-full flex font-Quato">
@@ -18,7 +17,7 @@ export default function GamePage ({titulo, categoria, imagen, contenido, peso, i
     <h1 className="text-5xl font-extrabold mb-6 text-center">{titulo}</h1>
       <div className="flex w-full justify-center rounded ">
       
-        <Carrusel images={imageList} className=''/>
+        <Carrusel images={imageList} />
       </div>
       <div className="w-full mt-4 px-2  pt-2">
         

@@ -3,11 +3,11 @@ import { Carousel } from "flowbite-react";
 import Image from "next/image";
  
 export default function Carrusel({images}) {
-  console.log(images)
+  console.log(images[0])
   return (
-    <Carousel className="relative w-full h-full">
+    <Carousel className="w-full h-full">
       {images.map((image, index) => (
-        <Image src={image} key={index} fill={true} objectFit="contain"/>
+        <img src={image} key={index} alt={index} className="rounded flex object-cover "/>
       ))}
   </Carousel>
   );

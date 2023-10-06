@@ -15,8 +15,7 @@ export default function GamePage ({titulo, categoria, imagen, contenido, peso, i
     <div className="w-full flex font-Quato">
     <section className="w-2/3 p-6">
     <h1 className="text-5xl font-extrabold mb-6 text-center">{titulo}</h1>
-      <div className="flex w-full justify-center rounded ">
-      
+      <div className="flex justify-center items-center rounded h-80 w-2/3 mx-auto">
         <Carrusel images={imageList} />
       </div>
       <div className="w-full mt-4 px-2  pt-2">

@@ -10,7 +10,7 @@ export default function SearchCard({image, title}) {
           <h3 className='font-semibold'>{title}</h3>
         </div>
         <div className='w-[40%] h-[90%]'>
-          <Image src={image} className='w-full'/>
+          <img src={image} className='w-full'/>
         </div>
       </div>
     </Link>

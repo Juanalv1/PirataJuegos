@@ -9,12 +9,12 @@ import Carrusel from "./Carrusel"
 export default function GamePage ({titulo, categoria, imagen, contenido, peso, idiomas, fechaLanzamiento, requirements, desarrollador, dlink}) 
 {
   const formattedRequirements = JSON.parse(requirements);
-  const [imageList, setImageList] = useState(null);
+  const [imageList, setImageList] = useState([]);
   useEffect(() => {
     if (imagen.length > 0) {
-      const imageListR = [...imagen];
-      imageListR.shift()
-      setImageList(imageListR);
+      const imageList = [...imagen];
+      imageList.shift()
+      setImageList(imageList);
     }
   }, [imagen]);
 

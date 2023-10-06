@@ -1,11 +1,30 @@
 "use client"
-
+import { Carousel } from "flowbite-react";
  
 export default function Carrusel({images}) {
   console.log(images)
   return (
-    <div>
-      <h1 className="text-4xl font-bold">Carrusel</h1>
-    </div>
+    <Carousel>
+    <img
+      alt="..."
+      src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
+    />
+    <img
+      alt="..."
+      src="https://flowbite.com/docs/images/carousel/carousel-2.svg"
+    />
+    <img
+      alt="..."
+      src="https://flowbite.com/docs/images/carousel/carousel-3.svg"
+    />
+    <img
+      alt="..."
+      src="https://flowbite.com/docs/images/carousel/carousel-4.svg"
+    />
+    <img
+      alt="..."
+      src="https://flowbite.com/docs/images/carousel/carousel-5.svg"
+    />
+  </Carousel>
   );
 }

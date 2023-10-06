@@ -1,4 +1,4 @@
-
+"use client"
 import Layout from '@/app/components/Layout';
 import GamePage from '../../components/GamePage'
 

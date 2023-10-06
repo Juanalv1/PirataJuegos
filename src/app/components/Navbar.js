@@ -4,7 +4,7 @@ import SearchBar from "./SearchBar"
 
 export default function navbar () {
   return(
-    <div className="bg-[#FFC93C] p-2 flex justify-between items-center px-4 border-b border-b-black ">
+    <div className="bg-[#FFC93C] p-2 flex justify-between items-center px-4 border-b border-b-black font-Cinzel">
      <div>
       <Link href={'/'}>
       <img src="/Logo.svg" className="w-20 h-12"/>

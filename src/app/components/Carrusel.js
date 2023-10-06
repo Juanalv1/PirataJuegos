@@ -1,5 +1,5 @@
-"use client"
-import { Carousel, IconButton } from "@material-tailwind/react";
+
+import { Carousel, IconButton } from "./Carousel";
  
 export default function Carrusel({images}) {
   console.log(images)

@@ -1,5 +1,5 @@
 import { UserProvider } from "./userContext";
-import "/styles/globals.css";
+import "./globals.css";
  
 import { ThemeProvider } from "@material-tailwind/react";
  

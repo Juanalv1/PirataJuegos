@@ -66,7 +66,7 @@ export default function Login() {
   };
 
   return (
-    <UserProvider>
+
       <Layout>
         <div>
           <form>
@@ -90,6 +90,6 @@ export default function Login() {
           </form>
         </div>
       </Layout>
-    </UserProvider>
+
   );
 }

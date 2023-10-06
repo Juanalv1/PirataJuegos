@@ -174,7 +174,7 @@ const CrearPublicacion = () => {
   }
 
   return (
-    <UserProvider>
+
       <Layout>
       <h1 className='font-bold text-xl'>Crear Nueva Publicación</h1>
       <form onSubmit={handleSubmit} className='p-2 flex flex-col gap-2'>
@@ -373,7 +373,7 @@ const CrearPublicacion = () => {
       <Home />
     </form>
       </Layout>
-    </UserProvider>
+
       
 
 

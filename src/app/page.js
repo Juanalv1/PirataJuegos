@@ -18,7 +18,7 @@ export default function Home() {
   
 
   return (
-  <UserProvider>
+
       <Layout>
         {isAdmin && (<><button>
             <Link href={`/admin/create`}>
@@ -44,6 +44,6 @@ export default function Home() {
           </ul>
         </section>
       </Layout>
-    </UserProvider>
+
   )
 }

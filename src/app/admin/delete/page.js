@@ -32,7 +32,7 @@ const HandleClick = () => {
 
 
 return(
-  <UserProvider>
+
     <Layout>
       <div>
         <h1>Borrar Publicacion</h1>
@@ -43,5 +43,5 @@ return(
         <Home />
       </div>
    </Layout>
-  </UserProvider>)
+)
 }

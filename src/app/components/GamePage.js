@@ -11,7 +11,7 @@ export default function GamePage ({titulo, categoria, imagen, contenido, peso, i
   const formattedRequirements = JSON.parse(requirements);
    // Elimina el primer elemento del array de imágenes
    const imageList = imagen.slice(1);
-   console.log(imageList)
+
   return(
     <div className="w-full flex font-Quato">
     <section className="w-2/3 p-6">

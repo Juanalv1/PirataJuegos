@@ -32,7 +32,7 @@ export default function SearchBar () {
   setShowAllResults(false); // Ocultar la lista completa al escribir;
   setFilteredResults(filtered);
   }
-  console.log(filteredResults)
+
   return(
     <div className="bg-white rounded relative font-Quato w-2/5">
       <input

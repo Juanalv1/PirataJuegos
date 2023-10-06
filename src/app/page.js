@@ -14,7 +14,7 @@ import { UserProvider, useUser } from './userContext';
 
 export default function Home() {
   const { isAdmin } = useUser();
-  console.log(isAdmin)
+
   
 
   return (

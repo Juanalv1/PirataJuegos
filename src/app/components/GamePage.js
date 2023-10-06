@@ -9,14 +9,15 @@ import Carrusel from "./Carrusel"
 export default function GamePage ({titulo, categoria, imagen, contenido, peso, idiomas, fechaLanzamiento, requirements, desarrollador, dlink}) 
 {
   const formattedRequirements = JSON.parse(requirements);
-  // const [imageList, setImageList] = useState([]);
-  // useEffect(() => {
-  //   if (imagen.length > 0) {
-  //     const imageList = [...imagen];
-  //     imageList.shift()
-  //     setImageList(imageList);
-  //   }
-  // }, [imagen]);
+  const [imageList, setImageList] = useState([]);
+  useEffect(() => {
+    if (imagen.length > 0) {
+      const imageList = [...imagen];
+      imageList.shift()
+      setImageList(imageList);
+    }
+  }, []);
+  console.log(imageList)
 
   return(
     <div className="w-full flex font-Quato">
@@ -24,7 +25,7 @@ export default function GamePage ({titulo, categoria, imagen, contenido, peso, i
     <h1 className="text-5xl font-extrabold mb-6 text-center">{titulo}</h1>
       <div className="flex w-full justify-center rounded ">
       
-        {/* <Carrusel images={imageList} className=''/> */}
+        <Carrusel images={imageList} className=''/>
       </div>
       <div className="w-full mt-4 px-2  pt-2">
         

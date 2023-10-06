@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
-mport {HiDownload} from "react-icons/hi"
+import {HiDownload} from "react-icons/hi"
 import Carrusel from "./Carrusel"
 
 

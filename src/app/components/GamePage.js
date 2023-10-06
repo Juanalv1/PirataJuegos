@@ -9,16 +9,9 @@ import Carrusel from "./Carrusel"
 export default function GamePage ({titulo, categoria, imagen, contenido, peso, idiomas, fechaLanzamiento, requirements, desarrollador, dlink}) 
 {
   const formattedRequirements = JSON.parse(requirements);
-  const [imageList, setImageList] = useState([]);
-  useEffect(() => {
-    if (imagen.length > 0) {
-      const imageList = [...imagen];
-      imageList.shift()
-      setImageList(imageList);
-    }
-  }, []);
-  console.log(imageList)
-
+   // Elimina el primer elemento del array de imágenes
+   const imageList = imagen.slice(1);
+   console.log(imageList)
   return(
     <div className="w-full flex font-Quato">
     <section className="w-2/3 p-6">

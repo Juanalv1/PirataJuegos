@@ -6,6 +6,8 @@ export default function Carrusel({ images }) {
   return (
     <div>
       hola
+      {images.map((imagen, index) => (
+        <img key={index} src={imagen} className="h-full w-full object-cover flex " alt={`imagen ${index}`}/>))}
     </div>
     // <Carousel transition={{ duration: 1 }} className="rounded w-[90%]  flex" prevArrow={({ handlePrev }) => (
     //   <IconButton
@@ -55,8 +57,7 @@ export default function Carrusel({ images }) {
     //     </svg>
     //   </IconButton>
     // )}>
-    //   {images.map((imagen, index) => (
-    //     <img key={index} src={imagen} className="h-full w-full object-cover flex " alt={`imagen ${index}`}/>
+      
     //   ))}
     // </Carousel>
   );

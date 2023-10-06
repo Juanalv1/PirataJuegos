@@ -1,9 +1,12 @@
-import {HiDownload} from "react-icons/hi"
+"use client"
+
+import { useEffect } from "react"
+mport {HiDownload} from "react-icons/hi"
 import Carrusel from "./Carrusel"
 
 
 
-export default function juego ({titulo, categoria, imagen, contenido, peso, idiomas, fechaLanzamiento, requirements, desarrollador, dlink}) 
+export default function GamePage ({titulo, categoria, imagen, contenido, peso, idiomas, fechaLanzamiento, requirements, desarrollador, dlink}) 
 {
   const formattedRequirements = JSON.parse(requirements);
   const [imageList, setImageList] = useState(null);

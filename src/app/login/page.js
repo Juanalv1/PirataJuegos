@@ -31,7 +31,7 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://192.168.1.27:3001/login', {
+      const response = await fetch('https://pirataback.vercel.app/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

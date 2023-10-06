@@ -6,15 +6,22 @@ import Carrusel from "./Carrusel"
 export default function juego ({titulo, categoria, imagen, contenido, peso, idiomas, fechaLanzamiento, requirements, desarrollador, dlink}) 
 {
   const formattedRequirements = JSON.parse(requirements);
-  imagen.shift()
-  console.log(categoria)
+  const [imageList, setImageList] = useState(null);
+  useEffect(() => {
+    if (imagen.length > 0) {
+      const imageListR = [...imagen];
+      imageListR.shift()
+      setImageList(imageListR);
+    }
+  }, [imagen]);
+
   return(
     <div className="w-full flex font-Quato">
     <section className="w-2/3 p-6">
     <h1 className="text-5xl font-extrabold mb-6 text-center">{titulo}</h1>
       <div className="flex w-full justify-center rounded ">
       
-        <Carrusel images={imagen} className=''/>
+        <Carrusel images={imageList} className=''/>
       </div>
       <div className="w-full mt-4 px-2  pt-2">
         

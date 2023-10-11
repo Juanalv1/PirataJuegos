@@ -1,7 +1,7 @@
 "use client"
 
 import Link from 'next/link';
-import ListaJuegos from './components/ListaJuegos';
+// import ListaJuegos from './components/ListaJuegos';
 import Layout from './components/Layout';
 import { UserProvider, useUser } from './userContext';
 
@@ -33,7 +33,7 @@ export default function Home() {
           
           <h2 className="text-2xl font-semibold mb-4 underline underline-offset-8 decoration-slate-900 decoration-1">Publicaciones Destacadas</h2>
           <ul className='flex w-full'>
-            <ListaJuegos /> 
+            {/* <ListaJuegos />  */}
           </ul>
         </section>
       </Layout>

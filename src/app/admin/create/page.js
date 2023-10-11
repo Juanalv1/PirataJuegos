@@ -176,9 +176,10 @@ const CrearPublicacion = () => {
   return (
 
       <Layout>
-      <h1 className='font-bold text-xl'>Crear Nueva Publicación</h1>
-      <form onSubmit={handleSubmit} className='p-2 flex flex-col gap-2'>
-      <div>
+        <div className='w-full flex flex-col'>
+       <h1 className='font-bold text-xl'>Crear Nueva Publicación</h1>
+        <form onSubmit={handleSubmit} className='p-2 flex flex-col gap-3 font-Quato w-full '>
+        <div>
         <label htmlFor="title">Título:</label>
         <input
           type="text"
@@ -202,13 +203,13 @@ const CrearPublicacion = () => {
       <button onClick={handleButtonClick}>Enviar</button>
       </div>
       <div>
-        <label htmlFor="text">text:</label>
+        <label htmlFor="text">Descripcion: </label>
         <textarea
           id="text"
           name="text"
           value={formData.text}
           onChange={handleChange}
-        />
+        className='h-[300px] w-[600px]'/>
       </div>
       {/* Repite estos bloques para cada estado */}
       <div>
@@ -372,6 +373,7 @@ const CrearPublicacion = () => {
       </div>
       <Home />
     </form>
+    </div>
       </Layout>
 
       

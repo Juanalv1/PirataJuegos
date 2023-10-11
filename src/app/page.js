@@ -1,11 +1,7 @@
 "use client"
-import Image from 'next/image'
-import Head from 'next/head';
+
 import Link from 'next/link';
-import RootLayout from './layout';
-import Card from './components/card';
-import ListaJuegos from './components/listaJuegos';
-import Navbar from './components/Navbar'
+import ListaJuegos from './components/ListaJuegos';
 import Layout from './components/Layout';
 import { UserProvider, useUser } from './userContext';
 
@@ -14,9 +10,6 @@ import { UserProvider, useUser } from './userContext';
 
 export default function Home() {
   const { isAdmin } = useUser();
-
-  
-
   return (
 
       <Layout>

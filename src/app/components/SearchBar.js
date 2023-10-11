@@ -34,7 +34,7 @@ export default function SearchBar () {
   }
 
   return(
-    <div className="bg-white rounded relative font-Quato w-2/5">
+    <div className="bg-white rounded relative font-Quato w-2/5 max-w-[320px]">
       <input
       type="text"
       value={searchValue}

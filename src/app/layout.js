@@ -1,11 +1,6 @@
 import './globals.css'
-import { Inter } from 'next/font/google'
-import Navbar from './components/Navbar'
-import { Header } from 'next/dist/lib/load-custom-routes'
 import { UserProvider } from './userContext'
 
-
-const inter = Inter({ subsets: ['latin'] })
 
  const metadata = {
   title: 'Create Next App',

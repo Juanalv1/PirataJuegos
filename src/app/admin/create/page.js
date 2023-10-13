@@ -114,6 +114,7 @@ const CrearPublicacion = () => {
     e.preventDefault()
     const listingImages = [...formData.images, inputValue]
     setFormData({...formData, images: listingImages})
+    setInputValue('')
     console.log('Valor del input:', inputValue);
   };
 
@@ -199,6 +200,7 @@ const CrearPublicacion = () => {
           type="text"
           onChange={handleInputChange}
           placeholder="imagen url"
+          value={inputValue}
       />
       <button onClick={handleButtonClick}>Enviar</button>
       </div>

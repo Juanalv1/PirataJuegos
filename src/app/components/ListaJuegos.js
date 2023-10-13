@@ -8,7 +8,7 @@ export default function ListaJuegos () {
         fetch('https://pirataback.vercel.app/api/posts')
         .then((res) => res.json())
         .then((data )=> {
-          setPosts(data)
+          setPosts(data.slice(0, 10))
         })
       } 
         catch (error) {
@@ -20,7 +20,7 @@ export default function ListaJuegos () {
   }, []);
 
   return (
-    <div className=" flex">
+    <div className="grid grid-auto-fit-sm w-full items-center justify-center place-items-center">
     {posts && posts.map((post, index) => (
       <Card key={index} titulo={post.post_title} categorias={post.categories} image={post.img_url} version={post.version}/>
     ))}

@@ -31,7 +31,7 @@ export default function Home() {
             </Link>
           </button>
           
-          <h2 className="text-2xl font-semibold mb-4 underline underline-offset-8 decoration-slate-900 decoration-1">Publicaciones Destacadas</h2>
+          <h2 className="text-2xl font-semibold mb-4 underline underline-offset-8 decoration-slate-900 decoration-1">Añadido recientemente</h2>
           <ul className='flex w-full'>
             <ListaJuegos /> 
           </ul>

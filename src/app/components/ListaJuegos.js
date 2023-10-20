@@ -1,9 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Card from "./Card"
-export default function ListaJuegos () {
+export default function ListaJuegos ({categoria}) {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    const fetchData = () => {
+    if (categoria) {
+      try {
+        fetch(`https://pirataback.vercel.app/api/posts/categories/${categoria.categoria}`)
+        .then((res) => res.json())
+        .then((data )=> {
+          setPosts(data.slice(0, 10))
+          console.log(data)
+        })
+      } 
+        catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    } else{
       try {
         fetch('https://pirataback.vercel.app/api/posts')
         .then((res) => res.json())
@@ -14,9 +26,8 @@ export default function ListaJuegos () {
         catch (error) {
         console.error("Error fetching data:", error);
       }
-    };
-
-    fetchData();
+    }
+  
   }, []);
 
   return (

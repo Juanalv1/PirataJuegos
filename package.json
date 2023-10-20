@@ -13,6 +13,7 @@
     "@coreui/coreui": "^5.0.0-alpha.2",
     "@coreui/react": "^5.0.0-alpha.3",
     "@lexical/react": "^0.12.2",
+    "@mantine/rte": "^5.10.5",
     "@material-tailwind/react": "^2.1.2",
     "@tinymce/tinymce-react": "^4.3.0",
     "babel-polyfill": "^6.26.0",
@@ -27,6 +28,7 @@
     "react-client": "^1.0.1",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
+    "react-youtube": "^10.1.0",
     "slate-react": "^0.98.4",
     "styled-jsx": "^5.1.2"
   },

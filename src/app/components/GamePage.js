@@ -2,11 +2,22 @@
 
 import {HiDownload} from "react-icons/hi"
 import Carrusel from "./Carrusel"
+import YouTube from "react-youtube"
 
 
 
-export default function GamePage ({titulo, categoria, imagen, contenido, peso, idiomas, fechaLanzamiento, requirements, desarrollador, dlink}) 
+
+export default function GamePage ({titulo, categoria, imagen, contenido, peso, idiomas, fechaLanzamiento, requirements, desarrollador, dlink, video_id}) 
 {
+  console.log(video_id)
+  const opts = { 
+    origin: 'http://localhost:3000',
+    height: "390", 
+    width: "640", 
+    playerVars: { 
+      autoplay: 1, 
+    }, 
+  }; 
   const formattedRequirements = JSON.parse(requirements);
    // Elimina el primer elemento del array de imágenes
    const imageList = [...imagen.slice(1)];
@@ -22,6 +33,13 @@ export default function GamePage ({titulo, categoria, imagen, contenido, peso, i
         
         <p dangerouslySetInnerHTML={{ __html: contenido }} className="text-justify"></p>
       </div>
+      <div className=" justify-center p-2 flex-col my-4">
+        <h2 className="text-3xl font-bold my-4 ">TRAILER</h2>
+        <div className="flex  w-full justify-center">
+        {video_id && (<YouTube videoId={video_id} 
+            opts={opts}/> )}
+        </div>
+      </div>
       <div className="mt-8">
         <h2 className="text-3xl font-bold my-4 ">INSTRUCCIONES DE DESCARGA</h2>
         <div className="flex">
@@ -36,6 +54,7 @@ export default function GamePage ({titulo, categoria, imagen, contenido, peso, i
             3.- Accederas a los links de descarga asi como las instrucciones especificas de instalacion
           </li>
         </ol>
+
         <a href={dlink}>
         <button className="py-2 px-3 tracking-wider bg-[#0735B3] self-center rounded-xl font-bold text-white flex items-center gap-1 text-lg shadow" > <HiDownload className="w-6 mr-1 h-6"/> DESCARGAR </button>
         </a>

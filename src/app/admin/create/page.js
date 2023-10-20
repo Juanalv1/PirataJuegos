@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'; // Importa el router de Next.js
 import Home from '@/app/components/BtnHome';
 import Layout from '@/app/components/Layout';
 import { UserProvider, useUser } from '@/app/userContext';
+import { RichTextEditor } from "@mantine/rte";
 
 
 
@@ -13,7 +14,10 @@ import { UserProvider, useUser } from '@/app/userContext';
 
 const CrearPublicacion = () => {
   const { token } = useUser()
-  console.log(token)
+  const [editorText, setEditorText] = useState("");
+
+
+
   const aLanguages = [
     "Inglés ",
     "Español ",
@@ -47,7 +51,7 @@ const CrearPublicacion = () => {
     languages: [],
     dlink: '',
     date: '',
-    videoUrl: '',
+    videoId: '',
     rating: '',
     requirements: {
       minimos: {
@@ -67,11 +71,13 @@ const CrearPublicacion = () => {
     },
     createdAt: '',
   });
+  useEffect(() => {
+    setFormData({ ...formData, text: editorText });
+  }, [editorText]);
 
   const [inputValue, setInputValue] = useState('');
 
   const router = useRouter(); // Inicializa el router de Next.js
-
   const [categorias, setCategorias] = useState([]); // Estado para almacenar las categorías
   
 
@@ -80,7 +86,6 @@ const CrearPublicacion = () => {
     fetch('https://pirataback.vercel.app/api/categories')
       .then(res => res.json())
       .then((data) => {
-        console.log(data)
         setCategorias(data); // Actualiza el estado con las categorías
       })
       .catch((error) => {
@@ -133,14 +138,15 @@ const CrearPublicacion = () => {
   
       if (response.status === 201) {
         // La publicación se creó exitosamente, puedes redirigir al usuario a la página de detalle de la publicación
-        // router.push(`/publicaciones/${nuevaPublicacion.id}`);
-        console.log('201')
+        alert('Creado exitosamente, 201')
+        router.push(`/juegos/${formData.title}`);
+
       } else {
-        console.log
-        // Maneja cualquier otro caso, por ejemplo, errores de validación en el servidor
-        console.error('Error al crear la publicación');
+
+        
       }
     } catch (error) {
+      alert('Error al crear el post')
       console.error('Error de red al crear la publicación:', error);
     }
   };
@@ -179,7 +185,7 @@ const CrearPublicacion = () => {
       <Layout>
         <div className='w-full flex flex-col'>
        <h1 className='font-bold text-xl'>Crear Nueva Publicación</h1>
-        <form onSubmit={handleSubmit} className='p-2 flex flex-col gap-3 font-Quato w-full '>
+        <form onSubmit={handleSubmit} className='p-2 flex  gap-3 font-Quato w-full flex-wrap'>
         <div>
         <label htmlFor="title">Título:</label>
         <input
@@ -205,13 +211,13 @@ const CrearPublicacion = () => {
       <button onClick={handleButtonClick}>Enviar</button>
       </div>
       <div>
+        
+      <RichTextEditor
+        value={editorText}
+        onChange={setEditorText}
+        toolbar={["bold", "italic", "underline", "strikethrough", "link", "image"]}
+      />
         <label htmlFor="text">Descripcion: </label>
-        <textarea
-          id="text"
-          name="text"
-          value={formData.text}
-          onChange={handleChange}
-        className='h-[300px] w-[600px]'/>
       </div>
       {/* Repite estos bloques para cada estado */}
       <div>
@@ -231,7 +237,7 @@ const CrearPublicacion = () => {
         </select>
       </div>
       {/* ... */}
-      <div>
+      <div className='flex flex-col'>
         <label htmlFor="size">Tamaño</label>
         <input
           type="text"
@@ -241,7 +247,7 @@ const CrearPublicacion = () => {
           onChange={handleChange}
         />
       </div>
-      <div>
+      <div className='flex flex-col'>
         <label htmlFor="version">Version</label>
         <input
           type="text"
@@ -251,7 +257,7 @@ const CrearPublicacion = () => {
           onChange={handleChange}
         />
       </div>
-      <div>
+      <div className='flex flex-col'>
         <label htmlFor="developer">developer</label>
         <input
           type="text"
@@ -261,7 +267,7 @@ const CrearPublicacion = () => {
           onChange={handleChange}
         />
       </div>
-      <div>
+      <div >
         <p>Lenguages seleccionados {formData.languages}</p>
         <label htmlFor="languages">Idiomas</label>
         <select
@@ -276,7 +282,7 @@ const CrearPublicacion = () => {
   ))}
 </select>
       </div>
-      <div>
+      <div className='flex flex-col'>
         <label htmlFor="dlink">Link de descarga</label>
         <input
           type="text"
@@ -296,13 +302,13 @@ const CrearPublicacion = () => {
           onChange={handleChange}
         />
       </div>
-      <div>
-        <label htmlFor="videoUrl">Video Url</label>
+      <div className='flex flex-col'>
+        <label htmlFor="videoId">Video ID</label>
         <input
           type="text"
-          id="videoUrl"
-          name="videoUrl"
-          value={formData.videoUrl}
+          id="videoId"
+          name="videoId"
+          value={formData.videoId}
           onChange={handleChange}
         />
       </div>
@@ -316,8 +322,14 @@ const CrearPublicacion = () => {
           onChange={handleChange}
         />
       </div>
-      <div className='w-full flex '>
-        <h3>Requisitos</h3>
+            <div className='flex w-full self-center text-center items-center justify-center text-xl font-bold'>
+            <h3 className='text-center '>Requisitos</h3>
+            </div>
+          
+
+      <div className='w-full flex'>
+        
+
         <div className='flex gap-4'>
           <h4>Minimos</h4>
           <div>

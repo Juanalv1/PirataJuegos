@@ -9,13 +9,12 @@ import YouTube from "react-youtube"
 
 export default function GamePage ({titulo, categoria, imagen, contenido, peso, idiomas, fechaLanzamiento, requirements, desarrollador, dlink, video_id}) 
 {
-  console.log(video_id)
+
   const opts = { 
     origin: 'http://localhost:3000',
     height: "390", 
     width: "640", 
-    playerVars: { 
-      autoplay: 1, 
+    playerVars: {  
     }, 
   }; 
   const formattedRequirements = JSON.parse(requirements);
@@ -26,11 +25,11 @@ export default function GamePage ({titulo, categoria, imagen, contenido, peso, i
     <div className="w-full flex font-Quato">
     <section className="w-2/3 p-6">
     <h1 className="text-5xl font-extrabold mb-6 text-center">{titulo}</h1>
-      <div className="flex justify-center items-center rounded h-80 w-2/3 mx-auto">
+      <div className="flex justify-center items-center rounded h-80 w-3/4 mx-auto">
         <Carrusel images={imageList} />
       </div>
       <div className="w-full mt-4 px-2  pt-2">
-        
+      <h2 className="text-lg my-4"><b>Descarga</b> {titulo} Gratis por Mega y Mediafire</h2>
         <p dangerouslySetInnerHTML={{ __html: contenido }} className="text-justify"></p>
       </div>
       <div className=" justify-center p-2 flex-col my-4">

@@ -1,11 +1,13 @@
 "use client"
-
+import dynamic from 'next/dynamic';
 import React, { useRef, useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation'; // Importa el router de Next.js
 import Home from '@/app/components/BtnHome';
 import Layout from '@/app/components/Layout';
 import { UserProvider, useUser } from '@/app/userContext';
-import { RichTextEditor } from "@mantine/rte";
+const DynamicRichTextEditor = dynamic(() => import('@mantine/rte'), {
+  ssr: false, // Evita que se renderice en el servidor
+});
 
 
 
@@ -212,7 +214,7 @@ const CrearPublicacion = () => {
       </div>
       <div>
         
-      <RichTextEditor
+      <DynamicRichTextEditor
         value={editorText}
         onChange={setEditorText}
         toolbar={["bold", "italic", "underline", "strikethrough", "link", "image"]}

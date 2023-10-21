@@ -7,9 +7,12 @@ export const UserProvider = ({ children }) => {
   const [isAdmin, setIsAdmin] = useState(false); // Inicialmente, el usuario no es administrador
   const [token, setToken] = useState(null);
   const [searchValue, setSearchValue] = useState('')
-  const [dev, setDev] = useState(false)
+  const [isDev, setIsDev] = useState(false)
+  useEffect(()=>{
+    console.log(isDev)
+  }, [isDev])
   return (
-    <UserContext.Provider value={{ isAdmin, setIsAdmin, token, setToken, searchValue, setSearchValue, dev, setDev }}>
+    <UserContext.Provider value={{ isAdmin, setIsAdmin, token, setToken, searchValue, setSearchValue, isDev, setIsDev }}>
       {children}
     </UserContext.Provider>
   );

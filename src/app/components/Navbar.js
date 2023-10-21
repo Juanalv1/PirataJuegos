@@ -8,7 +8,7 @@ export default function Navbar () {
   const [results, setResults] = useState([])
   const [showCategories, setShowCategories] = useState(false)
   const [clickCounter, setClickCounter] = useState(0)
-  const {dev, setDev} = useUser()
+  const { isDev, setIsDev } = useUser()
 
 
   const fetchData = async () => {
@@ -20,24 +20,25 @@ export default function Navbar () {
       console.error('Error al obtener datos:', error);
     }
   };
-  useEffect(() => {
-    fetchData()
-  }, [])
+  // useEffect(() => {
+  //   fetchData()
+  // }, [])
  
 const handleClick = () => {
-  if (clickCounter == 5){
-    setDev(true)
+  if (clickCounter == 10){
+    setIsDev(true)
+    console.log(isDev)
   } else{
     setClickCounter(clickCounter + 1)
   }
-
+console.log(clickCounter)
 }
   return(
     <div className="bg-[#FFC93C] p-2 flex justify-between items-center px-4 border-b border-b-black font-Cinzel">
      <div className=''>
       <img src="/Logo.svg" className="w-20 h-12" onClick={handleClick}/>
       </div>
-      <SearchBar />
+      {/* <SearchBar /> */}
       <div className="mr-20 ">
         <ul className="flex font-medium gap-3 text-lg m-0 relative">
           <li className='cursor-pointer p-1  flex '  onMouseEnter={() => setShowCategories(true)}

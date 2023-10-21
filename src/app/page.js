@@ -5,12 +5,14 @@ import ListaJuegos from './components/ListaJuegos.js';
 import Layout from './components/Layout';
 import { UserProvider, useUser } from './userContext';
 import Head from 'next/head.js';
+import { useEffect } from 'react';
+import BtnLogin from './components/BtnLogin.js';
+
 
 
 
 export default function Home() {
   const { isAdmin } = useUser();
-  const { dev } = useUser()
   return (
 
       <Layout>
@@ -29,16 +31,12 @@ export default function Home() {
             </Link>
           </button></>) }
         <section className='px-6 py-2 flex flex-col'>
-          {dev && ( <button>
-            <Link href={`/login`}>
-              login
-            </Link>
-          </button>)}
+          <BtnLogin />
          
           
           <h2 className="text-2xl font-semibold mb-4 underline underline-offset-8 decoration-slate-900 decoration-1">Añadido recientemente</h2>
           <ul className='flex w-full'>
-            <ListaJuegos /> 
+            {/* <ListaJuegos />  */}
           </ul>
         </section>
       </Layout>

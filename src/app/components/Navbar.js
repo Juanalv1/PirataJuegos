@@ -3,7 +3,7 @@ import Link from "next/link"
 import SearchBar from "./SearchBar"
 import { useEffect, useState } from 'react'
 
-export default function navbar () {
+export default function Navbar () {
   const [results, setResults] = useState([])
   const [showCategories, setShowCategories] = useState(false)
 

@@ -8,7 +8,7 @@ Home
 RootLayout
 
 export default function GamesList ({params}) {
-  const categoria = params
+  const categoria = decodeURIComponent(params.categoria);
   
   return(
 
@@ -17,7 +17,7 @@ export default function GamesList ({params}) {
           <title>{categoria} - PirataJuegos</title>
           <meta name="description" content={`${categoria}`} />
         </Head>
-      <h1 className="text-2xl font-bold font-Cinzel p-2">{categoria.categoria}</h1>
+      <h1 className="text-2xl font-bold font-Cinzel p-2">{categoria}</h1>
       <ListaJuegos categoria={categoria}>
       </ListaJuegos>
     </Layout>

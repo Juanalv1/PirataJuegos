@@ -4,7 +4,7 @@ import Link from 'next/link';
 import ListaJuegos from './components/ListaJuegos.js';
 import Layout from './components/Layout';
 import { UserProvider, useUser } from './userContext';
-
+import Head from 'next/head.js';
 
 
 
@@ -13,6 +13,10 @@ export default function Home() {
   return (
 
       <Layout>
+         <Head>
+          <title>Home - PirataJuegos</title>
+          <meta name="description" content="Descarga Juegos piratas gratis" />
+        </Head>
         {isAdmin && (<><button>
             <Link href={`/admin/create`}>
               Crear 

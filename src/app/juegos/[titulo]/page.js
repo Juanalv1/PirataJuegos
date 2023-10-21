@@ -1,6 +1,7 @@
 
 import Layout from '@/app/components/Layout';
 import GamePage from '../../components/GamePage'
+import Head from 'next/head';
 
 
 export default async function titulo ({ params }) {
@@ -22,6 +23,10 @@ const formattedLanguages = juego[0].languages.join(' ');
 console.log(titulo)
   return(
     <Layout>
+        <Head>
+          <title>{titulo} - PirataJuegos</title>
+          <meta name="description" content={ `Descarga ${titulo} Gratis`} />
+        </Head>
       {juego && (<GamePage titulo={juego[0].post_title} categoria={formattedCategories} contenido={juego[0].post_text} imagen={juego[0].img_url} peso={juego[0].size} idiomas={formattedLanguages} fechaLanzamiento={fechaFormateada} dlink={juego[0].download_link} desarrollador={juego[0].developer} requirements={juego[0].requirements} video_id={juego[0].video_id}/>)}
       
     </Layout>

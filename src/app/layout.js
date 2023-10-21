@@ -10,7 +10,7 @@ import { UserProvider } from './userContext'
 export default function RootLayout({ children }) {
   return (
     <UserProvider>
-      <html lang="es">
+      <html lang="es">       
         <body className='w-full min-h-screen bg-[#FFFCE6]  font-Cinzel'>{children}</body>
       </html>
     </UserProvider>

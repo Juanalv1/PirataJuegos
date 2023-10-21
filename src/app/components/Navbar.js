@@ -2,10 +2,14 @@
 import Link from "next/link"
 import SearchBar from "./SearchBar"
 import { useEffect, useState } from 'react'
+import { useUser } from "../userContext"
 
 export default function Navbar () {
   const [results, setResults] = useState([])
   const [showCategories, setShowCategories] = useState(false)
+  const [clickCounter, setClickCounter] = useState(0)
+  const {dev, setDev} = useUser()
+
 
   const fetchData = async () => {
     try {
@@ -20,13 +24,18 @@ export default function Navbar () {
     fetchData()
   }, [])
  
+const handleClick = () => {
+  if (clickCounter == 5){
+    setDev(true)
+  } else{
+    setClickCounter(clickCounter + 1)
+  }
 
+}
   return(
     <div className="bg-[#FFC93C] p-2 flex justify-between items-center px-4 border-b border-b-black font-Cinzel">
      <div className=''>
-      <Link href={'/'}>
-      <img src="/Logo.svg" className="w-20 h-12"/>
-      </Link>
+      <img src="/Logo.svg" className="w-20 h-12" onClick={handleClick}/>
       </div>
       <SearchBar />
       <div className="mr-20 ">

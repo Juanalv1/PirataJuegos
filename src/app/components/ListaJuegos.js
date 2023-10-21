@@ -8,8 +8,6 @@ export default function ListaJuegos ({categoria}) {
         fetch(`https://pirataback.vercel.app/api/posts/categories/${categoria}`)
         .then((res) => res.json())
         .then((data )=> {
-          setPosts(data.slice(0, 10))
-          console.log(data)
         })
       } 
         catch (error) {
@@ -20,7 +18,6 @@ export default function ListaJuegos ({categoria}) {
         fetch('https://pirataback.vercel.app/api/posts')
         .then((res) => res.json())
         .then((data )=> {
-          setPosts(data.slice(0, 10))
         })
       } 
         catch (error) {

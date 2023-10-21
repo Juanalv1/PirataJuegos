@@ -36,7 +36,7 @@ export default function Home() {
           
           <h2 className="text-2xl font-semibold mb-4 underline underline-offset-8 decoration-slate-900 decoration-1">Añadido recientemente</h2>
           <ul className='flex w-full'>
-            {/* <ListaJuegos />  */}
+            <ListaJuegos /> 
           </ul>
         </section>
       </Layout>

@@ -50,7 +50,7 @@ export default function SearchBar () {
         </button>
       )}
       {filteredResults.length > 0 && searchValue && (
-        <div className="absolute bg-yellow-200 p-2  shadow-md rounded-b-md">
+        <div className="absolute bg-yellow-300 p-2  shadow-md rounded-b-md flex flex-col gap-1">
           {showAllResults
             ? filteredResults.map((result, index) => (
                 <SearchCard key={index} image={result.img_url[0]} title={result.post_title} />

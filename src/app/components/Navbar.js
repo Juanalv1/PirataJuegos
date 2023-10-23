@@ -41,6 +41,9 @@ console.log(clickCounter)
       <SearchBar />
       <div className="mr-20 ">
         <ul className="flex font-medium gap-3 text-lg m-0 relative">
+        <Link href={'/'}>
+            <li className='p-1'>Home</li>
+          </Link>
           <li className='cursor-pointer p-1  flex '  onMouseEnter={() => setShowCategories(true)}
           onMouseLeave={() => setShowCategories(false)}>
             Categorias
@@ -54,10 +57,10 @@ console.log(clickCounter)
           ))}
         </ul>
       )}
-          <Link href={'/'}>
-            <li className='p-1'>Home</li>
+        <Link href={'/dmca'}>
+            <li className='p-1'>DMCA</li>
           </Link>
-          <li className='p-1'>
+          {/* <li className='p-1'>
             Contacto
           </li>
           <li className='p-1'>
@@ -65,7 +68,7 @@ console.log(clickCounter)
           </li>
           <li className='p-1'>
             Programas
-          </li>
+          </li> */}
         </ul>
       </div>
       

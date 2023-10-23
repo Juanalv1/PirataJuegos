@@ -29,7 +29,7 @@ export default function GamePage ({titulo, categoria, imagen, contenido, peso, i
         <Carrusel images={imageList} />
       </div>
       <div className="w-full mt-4 px-2  pt-2">
-      <h2 className="text-lg my-4"><b>Descarga</b> {titulo} Gratis por Mega y Mediafire</h2>
+      <h2 className="text-lg my-4"><b>DESCARGA {titulo} Gratis por MEGA y MEDIAFIRE</b></h2>
         <p dangerouslySetInnerHTML={{ __html: contenido }} className="text-justify"></p>
       </div>
       <div className=" justify-center p-2 flex-col my-4">
@@ -38,6 +38,10 @@ export default function GamePage ({titulo, categoria, imagen, contenido, peso, i
         {video_id && (<YouTube videoId={video_id} 
             opts={opts}/> )}
         </div>
+      </div>
+      <div className="my-4">
+        <h4 className="text-2xl font-bold">Publicidad</h4>
+        
       </div>
       <div className="mt-8">
         <h2 className="text-3xl font-bold my-4 ">INSTRUCCIONES DE DESCARGA</h2>
@@ -66,7 +70,7 @@ export default function GamePage ({titulo, categoria, imagen, contenido, peso, i
         <h3 className="text-xl font-bold text-center">
           Detalles del Juego:
         </h3>
-        <ul className="w-full px-10 py-2 flex flex-col gap-1">
+        <ul className="w-full px-6 py-2 flex flex-col gap-1">
           <li className="flex justify-between"><span className="font-semibold ">Peso:</span><span>{peso}</span> </li>
           <li className="flex justify-between"><span className="font-semibold mr-2">Idiomas:</span> <span>{idiomas}</span></li>
           <li className="flex justify-between"><span className="font-semibold mr-2">Fecha de lanzamiento:</span><span>{fechaLanzamiento}</span> </li>
@@ -75,7 +79,7 @@ export default function GamePage ({titulo, categoria, imagen, contenido, peso, i
         </ul>
       </div>
       <div>
-        <h3 className="text-xl font-bold text-center"> REQUISITOS </h3>
+        <h3 className="text-xl font-bold text-center"> Requisitos </h3>
         <div className="w-full">
           <div className="px-6 py-2">
           <h4 className="font-bold text-lg">Minimos:</h4>
@@ -99,6 +103,10 @@ export default function GamePage ({titulo, categoria, imagen, contenido, peso, i
           </ul>
           </div>
         </div>
+      </div>
+      <div>
+        <h4>Publicidad</h4>
+
       </div>
     </aside>
     </div>

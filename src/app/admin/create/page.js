@@ -85,7 +85,7 @@ const CrearPublicacion = () => {
 
   useEffect(() => {
     // Realiza una solicitud a la API para obtener las categorías
-    fetch('https://pirataback.vercel.app/api/categories')
+    fetch('http://piratajuegos.com/api/categories')
       .then(res => res.json())
       .then((data) => {
         setCategorias(data); // Actualiza el estado con las categorías

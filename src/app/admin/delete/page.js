@@ -13,7 +13,7 @@ const { token } = useUser()
 console.log(token)
 
 const HandleClick = () => {
-  fetch(`https://pirataback.vercel.app/api/posts${title}`,{ 
+  fetch(`http://piratajuegos.com/api/posts${title}`,{ 
     method: 'DELETE',
     'Authorization': `Bearer ${token}`,
   })

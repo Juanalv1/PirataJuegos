@@ -7,7 +7,7 @@ import Head from 'next/head';
 export default async function titulo ({ params }) {
   const { titulo } = params // "id" debe coincidir con el nombre del parámetro en la URL
   const fetchData = async () => {
-   const res = await fetch(`https://pirataback.vercel.app/api/posts/${titulo}`)
+   const res = await fetch(`http://piratajuegos.com/api/posts/${titulo}`)
    return res.json()
   }
   let juego = await fetchData()

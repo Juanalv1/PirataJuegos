@@ -5,7 +5,7 @@ export default function ListaJuegos ({categoria}) {
   useEffect(() => {
     if (categoria) {
       try {
-        fetch(`https://pirataback.vercel.app/api/posts/categories/${categoria}`)
+        fetch(`http://piratajuegos.com/api/posts/categories/${categoria}`)
         .then((res) => res.json())
         .then((data )=> {
           setPosts(data.slice(0, 20))
@@ -16,7 +16,7 @@ export default function ListaJuegos ({categoria}) {
       }
     } else{
       try {
-        fetch('https://pirataback.vercel.app/api/posts')
+        fetch('http://piratajuegos.com/api/posts')
         .then((res) => res.json())
         .then((data )=> {
           setPosts(data.slice(0, 10))

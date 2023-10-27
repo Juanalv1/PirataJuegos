@@ -1,7 +1,8 @@
 const EXTERNAL_DATA_URL = 'https://piratajuegos.com/posts';
 
 function generateSiteMap(posts) {
-  return `<?xml version="1.0" encoding="UTF-8"?>
+  console.log(posts)
+  return (`<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
      <!--We manually set the two URLs we know already-->
      <url>
@@ -14,13 +15,13 @@ function generateSiteMap(posts) {
        .map(({ titulo }) => {
          return `
        <url>
-           <loc>${`${EXTERNAL_DATA_URL}/${titulo.post_title}`}</loc>
+           <loc>${`${EXTERNAL_DATA_URL}/${titulo}`}</loc>
        </url>
      `;
        })
        .join('')}
    </urlset>
- `;
+ `);
 }
 
 function SiteMap() {

@@ -1,4 +1,4 @@
-const EXTERNAL_DATA_URL = 'https://piratajuegos.com/juegos';
+const EXTERNAL_DATA_URL = 'https://piratajuegos.com/api/posts';
 
 function generateSiteMap(posts) {
   console.log(posts)
@@ -12,10 +12,10 @@ function generateSiteMap(posts) {
        <loc>https://jsonplaceholder.typicode.com/guide</loc>
      </url>
      ${posts
-       .map(({ titulo }) => {
+       .map(({ post }) => {
          return `
        <url>
-           <loc>${`${EXTERNAL_DATA_URL}/${titulo}`}</loc>
+           <loc>${`${EXTERNAL_DATA_URL}/${post.post_title}`}</loc>
        </url>
      `;
        })

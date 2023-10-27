@@ -1,4 +1,4 @@
-const EXTERNAL_DATA_URL = 'https://piratajuegos.com/posts';
+const EXTERNAL_DATA_URL = 'https://piratajuegos.com/juegos';
 
 function generateSiteMap(posts) {
   console.log(posts)
@@ -25,7 +25,6 @@ function generateSiteMap(posts) {
 }
 
 function SiteMap() {
-  getServerSideProps()
 }
 
 export async function getServerSideProps({ res }) {

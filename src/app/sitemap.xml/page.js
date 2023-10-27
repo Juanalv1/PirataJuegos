@@ -1,4 +1,4 @@
-"use client"
+
 import { useEffect } from 'react';
 
 const EXTERNAL_DATA_URL = 'https://piratajuegos.com/api/posts';

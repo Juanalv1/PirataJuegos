@@ -13,7 +13,7 @@ export default function SearchBar () {
   }, []);
   const fetchData = async () => {
     try {
-      const res = await fetch('http://piratajuegos.com/api/posts');
+      const res = await fetch('https://piratajuegos.com/api/posts');
       const data = await res.json();
       setResults(data);
     } catch (error) {

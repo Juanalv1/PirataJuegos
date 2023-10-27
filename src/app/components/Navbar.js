@@ -13,7 +13,7 @@ export default function Navbar () {
 
   const fetchData = async () => {
     try {
-      const res = await fetch('http://piratajuegos.com/api/categories');
+      const res = await fetch('https://piratajuegos.com/api/categories');
       const data = await res.json();
       setResults(data);
     } catch (error) {

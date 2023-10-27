@@ -31,7 +31,7 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://piratajuegos.com/api/login', {
+      const response = await fetch('https://piratajuegos.com/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

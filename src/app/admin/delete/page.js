@@ -13,7 +13,7 @@ const { token } = useUser()
 console.log(token)
 
 const HandleClick = () => {
-  fetch(`http://piratajuegos.com/api/posts${title}`,{ 
+  fetch(`https://piratajuegos.com/api/posts${title}`,{ 
     method: 'DELETE',
     'Authorization': `Bearer ${token}`,
   })

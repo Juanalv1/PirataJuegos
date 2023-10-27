@@ -1,64 +1,64 @@
 
-import { useEffect } from 'react';
-
 const EXTERNAL_DATA_URL = 'https://piratajuegos.com/api/posts';
+const SITE_URL = 'https://piratajuegos.com'; // Asegúrate de ajustar la URL de tu sitio web
+
 
 async function generateSiteMap(posts) {
-  return `<?xml version="1.0" encoding="UTF-8"?>
+  const sitemapEntries = posts.map(({ title, date }) => ({
+    url: `https://piratajuegos.com/posts/${title}`, // Ajusta la URL de tus posts
+    lastModified: date,
+  }));
+
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      <!--We manually set the two URLs we know already-->
+      <!-- We manually set the two URLs we know already -->
       <url>
-        <loc>https://jsonplaceholder.typicode.com</loc>
+        <loc>https://piratajuegos.com</loc>
       </url>
       <url>
-        <loc>https://jsonplaceholder.typicode.com/guide</loc>
+        <loc>https://piratajuegos.com/guide</loc>
       </url>
-      ${posts
-        .map(({ id }) => {
+      ${sitemapEntries
+        .map(({ url, lastModified }) => {
           return `
           <url>
-            <loc>${`${EXTERNAL_DATA_URL}/${id}`}</loc>
+            <loc>${url}</loc>
+            <lastmod>${lastModified}</lastmod>
           </url>
           `;
         })
         .join('')}
     </urlset>
   `;
-}
-async function getPosts (url) {
-  const req = await fetch(url)
-  const posts = await req.json()
-  
-  return posts
+
+  return sitemap;
 }
 
-async function SiteMap() {
+export async function serverAction() {
+  try {
+    const response = await fetch(EXTERNAL_DATA_URL);
+    if (!response.ok) {
+      throw new Error('Failed to fetch data');
+    }
+    const posts = await response.json();
 
-    const posts = await getPosts(EXTERNAL_DATA_URL)
-    // Generate the XML sitemap with the posts data
     const sitemap = generateSiteMap(posts);
 
-    // Set the content type header to indicate XML
-    document.contentType = 'text/xml';
-
-    // Set the content of the page to the generated sitemap
-    document.body.innerHTML = sitemap;
-
-
-  // Return an empty component, as the content will be set in useEffect
-  return null;
+    return {
+      headers: {
+        'Content-Type': 'text/xml',
+      },
+      body: sitemap,
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      status: 500,
+      body: 'Internal Server Error',
+    };
+  }
+}
+export default function SiteMap() {
+  return null; // No necesitas un componente visible, ya que se generará el sitemap directamente en el servidor
 }
 
-// export async function getServerSideProps({ res }) {
-//   // Make an API call to gather the URLs for the site
-//   const request = await fetch(EXTERNAL_DATA_URL);
-//   const posts = await request.json();
-
-//   return {
-//     props: {
-//       posts,
-//     },
-//   };
-// }
-
-export default SiteMap;

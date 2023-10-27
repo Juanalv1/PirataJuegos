@@ -7,11 +7,13 @@ import { UserProvider, useUser } from './userContext';
 import Head from 'next/head.js';
 import { useEffect } from 'react';
 import BtnLogin from './components/BtnLogin.js';
+import SiteMap from './sitemap.xml.js';
 
 
 
 
 export default function Home() {
+  SiteMap()
   const { isAdmin } = useUser();
   return (
 

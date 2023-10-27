@@ -28,6 +28,7 @@ function generateSiteMap(posts) {
 async function getPosts (url) {
   const req = await fetch(url)
   const posts = await req.json()
+  console.log(posts)
   return posts
 }
 

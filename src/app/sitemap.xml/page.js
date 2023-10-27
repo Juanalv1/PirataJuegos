@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 const EXTERNAL_DATA_URL = 'https://piratajuegos.com/api/posts';
 
-function generateSiteMap(posts) {
+async function generateSiteMap(posts) {
   console.log(posts)
   return `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -34,8 +34,8 @@ async function getPosts (url) {
 }
 
 async function SiteMap() {
-  useEffect(() => {
-    const posts =  getPosts(EXTERNAL_DATA_URL)
+
+    const posts = await getPosts(EXTERNAL_DATA_URL)
     console.log(posts)
     // Generate the XML sitemap with the posts data
     const sitemap = generateSiteMap(posts);
@@ -45,7 +45,7 @@ async function SiteMap() {
 
     // Set the content of the page to the generated sitemap
     document.body.innerHTML = sitemap;
-  }, []);
+
 
   // Return an empty component, as the content will be set in useEffect
   return null;

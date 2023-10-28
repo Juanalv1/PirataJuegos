@@ -1,10 +1,7 @@
-"use client"
 
 import {HiDownload} from "react-icons/hi"
 import Carrusel from "./Carrusel"
 import YouTube from "react-youtube"
-
-
 
 
 export default function GamePage ({titulo, categoria, imagen, contenido, peso, idiomas, fechaLanzamiento, requirements, desarrollador, dlink, video_id}) 

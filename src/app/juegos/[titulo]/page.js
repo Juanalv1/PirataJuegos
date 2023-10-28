@@ -2,23 +2,27 @@
 import Layout from '@/app/components/Layout';
 import GamePage from '../../components/GamePage'
 
-const fetchData = async ({ params }) => {
-  const { titulo } = params // "id" debe coincidir con el nombre del parámetro en la URL
-  console.log(titulo)
-  const req = await fetch(`http://piratajuegos.com/api/posts/${titulo}`)
-  const res = req[0].json()
-  return res
+const fetchData = async (titulo) => {
+  const req = await fetch(`http://piratajuegos.com/api/posts/${titulo}`) 
+  return req.json()
 }
-export const metadata = {
-  title: await fetchData().post_title,
-  description: `Descarga ${await fetchData().post_title} Gratis`,
+export async function generateMetadata({ params }) {
+  // read route params
+  const { titulo } = params
+ 
+  // fetch data
+  let juego = await fetchData(titulo)
+ 
+  return {
+    title: juego[0].post_title,
+    description: `Descarga ${juego[0].post_title} Gratis`
+  }
 }
-
 export default async function titulo ({ params }) {
   const { titulo } = params // "id" debe coincidir con el nombre del parámetro en la URL
-  let juego = await fetchData()
-const fechaBD = new Date(juego[0].date);
 
+  let juego = await fetchData(titulo)
+const fechaBD = new Date(juego[0].date);
 const dia = fechaBD.getDate(); // 
 const mes = fechaBD.getMonth() + 1; // 
 const año = fechaBD.getFullYear(); // 

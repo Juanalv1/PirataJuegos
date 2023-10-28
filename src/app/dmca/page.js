@@ -14,5 +14,8 @@ const Dmca = () => {
     </Layout>
   )
 }
-
+export const metadata = {
+  title: 'DMCA',
+  description: '...',
+}
 export default Dmca

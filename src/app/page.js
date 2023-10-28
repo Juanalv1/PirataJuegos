@@ -1,35 +1,18 @@
-"use client"
 
-import Link from 'next/link';
 import ListaJuegos from './components/ListaJuegos.js';
 import Layout from './components/Layout';
-import { UserProvider, useUser } from './userContext';
-import Head from 'next/head.js';
-import { useEffect } from 'react';
 import BtnLogin from './components/BtnLogin.js';
+import AdminLogin from './components/AdminLogin.js';
+
 
 
 
 
 export default function Home() {
-  const { isAdmin } = useUser();
   return (
 
       <Layout>
-         <Head>
-          <title>Home - PirataJuegos</title>
-          <meta name="description" content="Descarga Juegos piratas gratis" />
-        </Head>
-         {isAdmin && (<><button>
-          <Link href={`/admin/create`}>
-              Crear 
-          </Link>       
-          </button>
-          <button>
-            <Link href={`/admin/delete`}>
-              Borrar
-            </Link>
-          </button></>) }
+         <AdminLogin />
           <div className='flex font-Quato'>
           <section className='px-6 py-2 flex flex-col w-3/4'>
             <BtnLogin />
@@ -45,4 +28,8 @@ export default function Home() {
       </Layout>
 
   )
+}
+export const metadata = {
+  title: 'Home - Piratajuegos',
+  description: 'Descarga Juegos Gratis',
 }

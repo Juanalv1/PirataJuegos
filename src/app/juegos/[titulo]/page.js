@@ -3,7 +3,7 @@ import Layout from '@/app/components/Layout';
 import GamePage from '../../components/GamePage'
 
 
-export async function titulo ({ params }) {
+export default async function titulo ({ params }) {
   const { titulo } = params // "id" debe coincidir con el nombre del parámetro en la URL
   const fetchData = async () => {
     const res = await fetch(`http://piratajuegos.com/api/posts/${titulo}`)
@@ -29,9 +29,7 @@ const content = (
   </Layout>
 )
   return{
-    props: {
       content,
       metadata
-    }
   }
 }

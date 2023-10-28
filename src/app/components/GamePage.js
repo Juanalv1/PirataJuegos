@@ -1,3 +1,4 @@
+"use client"
 
 import {HiDownload} from "react-icons/hi"
 import Carrusel from "./Carrusel"

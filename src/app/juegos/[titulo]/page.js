@@ -29,6 +29,6 @@ console.log(titulo)
   )
 }
 export const metadata = {
-  title: titulo,
-  description: `Descarga ${titulo} Gratis`,
+  title: juego[0].post_title,
+  description: `Descarga ${juego[0].post_title} Gratis`,
 }

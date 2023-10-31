@@ -3,7 +3,7 @@
 import {HiDownload} from "react-icons/hi"
 import Carrusel from "./Carrusel"
 import YouTube from "react-youtube"
-
+import Banner from "./Banner"
 
 export default function GamePage ({titulo, categoria, imagen, contenido, peso, idiomas, fechaLanzamiento, requirements, desarrollador, dlink, video_id}) 
 {
@@ -39,7 +39,7 @@ export default function GamePage ({titulo, categoria, imagen, contenido, peso, i
       </div>
       <div className="my-4">
         <h4 className="text-2xl font-bold">Publicidad</h4>
-        
+        <Banner />
       </div>
       <div className="mt-8">
         <h2 className="text-3xl font-bold my-4 ">INSTRUCCIONES DE DESCARGA</h2>
@@ -63,8 +63,8 @@ export default function GamePage ({titulo, categoria, imagen, contenido, peso, i
       </div>
     </section>
 
-    <aside className="w-1/3 border-l border-l-black">
-      <div className="m-2 p-2">
+    <aside className="w-1/3 border-l border-l-black pt-20 ">
+      <div className="m-2 mb-4">
         <h3 className="text-xl font-bold text-center">
           Detalles del Juego:
         </h3>
@@ -76,10 +76,10 @@ export default function GamePage ({titulo, categoria, imagen, contenido, peso, i
           <li className="flex justify-between"><span className="font-semibold mr-2">Desarrollador:</span><span>{desarrollador}</span></li>
         </ul>
       </div>
-      <div>
+      <div className="">
         <h3 className="text-xl font-bold text-center"> Requisitos </h3>
-        <div className="w-full">
-          <div className="px-6 py-2">
+        <div className="w-full ">
+          <div className="px-6 py-2 mb-4">
           <h4 className="font-bold text-lg">Minimos:</h4>
           <ul className=" w-full  py-2 flex flex-col gap-1">
             <li><span className="font-semibold">Sistema operativo:</span><span className="ml-2">{formattedRequirements.minimos.SO}</span></li>
@@ -89,8 +89,7 @@ export default function GamePage ({titulo, categoria, imagen, contenido, peso, i
             <li><span className="font-semibold">Almacenamiento:</span><span className="ml-2">{formattedRequirements.minimos.Almacenamiento}</span></li>
           </ul>
           </div>
-          <hr  className="bg-black"/>
-          <div className="px-6 py-2">
+          <div className="px-6 py-2 ">
           <h4 className="font-bold text-lg">Recomendados:</h4>
           <ul className=" w-full  py-2 flex flex-col gap-1">
             <li><span className="font-semibold">Sistema operativo:</span><span className="ml-2">{formattedRequirements.recomendados.SO}</span></li>

@@ -37,7 +37,7 @@ console.log(clickCounter)
   return(
     <div className="bg-[#FFC93C] p-2 flex justify-between items-center px-4 border-b border-b-black font-Cinzel">
      <div className=''>
-      <Image src="/Logo.svg" width={80} height={48} onClick={handleClick} alt="Piratajuegos Logo"/>
+      <Image src="/Logo.svg" width={60} height={40} onClick={handleClick} alt="Piratajuegos Logo"/>
       </div>
       <SearchBar />
       <div className="mr-20 ">

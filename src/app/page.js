@@ -23,6 +23,7 @@ export default function Home() {
           </section>
           <aside className='w-1/4 border-l border-black px-6 py-2'>
             <h4 className='text-lg font-bold m-1 text-center'>Publicidad</h4>
+          <div id="container-9c30a0f07e3e73bde234faed95ab8d55"></div>
           </aside>
         </div>
       </Layout>

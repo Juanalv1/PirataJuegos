@@ -9,7 +9,7 @@ export default async function sitemap() {
 
   // Crear un array de objetos que representan las páginas/posts
   const pages = posts.map((post) => ({
-    url: `${site_URL}/juegos/${tituloMap}`, // Codifica el título
+    url: `${site_URL}/juegos/${titulo}`, // Codifica el título
     lastModified: currentDate,
     changeFrequency: 'monthly',
     priority: 1,

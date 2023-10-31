@@ -6,12 +6,12 @@ export default async function sitemap() {
   try {
     const req = await fetch(fetchURL);
     const posts = await req.json();
-    const titulo = posts.post_title
+    const titulo = posts[0].post_title
     console.log(titulo)
 
       // Resto del código para crear las páginas del sitemap
       const pages = posts.map((post) => ({
-        url: `${site_URL}/juegos/${post.title}`,
+        url: `${site_URL}/juegos/${post.post_title}`,
         lastModified: currentDate,
         changeFrequency: 'monthly',
         priority: 1,

@@ -7,7 +7,7 @@ export default async function sitemap() {
     const req = await fetch(fetchURL);
     const posts = await req.json();
     const titulo = posts.post_title
-    console.log(titulos)
+    console.log(titulo)
 
       // Resto del código para crear las páginas del sitemap
       const pages = posts.map((post) => ({

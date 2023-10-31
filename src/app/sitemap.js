@@ -4,10 +4,10 @@ export default async function sitemap() {
   const currentDate = new Date();
   const req = await fetch(fetchURL)
   const posts = await req.json()
-  console.log(posts)
+  const titulo = posts.post_title.replace(/ /g, "-");
   // Crear un array de objetos que representan las páginas/posts
   const pages = posts.map((post) => ({
-    url: `${site_URL}/juegos/${encodeURIComponent(post.post_title)}`, // Codifica el título
+    url: `${site_URL}/juegos/${titulo}`, // Codifica el título
     lastModified: currentDate,
     changeFrequency: 'monthly',
     priority: 1,

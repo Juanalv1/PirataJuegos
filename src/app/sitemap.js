@@ -5,15 +5,12 @@ export default async function sitemap() {
 
   try {
     const req = await fetch(fetchURL);
-    const data = await req.json();
-
+    const posts = await req.json();
     if (data && data.post_title) {
-      const titulo = data.post_title.replace(/ /g, "-");
-
       // Resto del código para crear las páginas del sitemap
 
       const pages = posts.map((post) => ({
-        url: `${site_URL}/juegos/${titulo}`,
+        url: `${site_URL}/juegos/${post.title.replace(/ /g, "-")}`,
         lastModified: currentDate,
         changeFrequency: 'monthly',
         priority: 1,

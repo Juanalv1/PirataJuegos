@@ -1,5 +1,6 @@
 "use client"
 import Link from "next/link"
+import Image from "next/image"
 import SearchBar from "./SearchBar"
 import { useEffect, useState } from 'react'
 import { useUser } from "../userContext"
@@ -36,7 +37,7 @@ console.log(clickCounter)
   return(
     <div className="bg-[#FFC93C] p-2 flex justify-between items-center px-4 border-b border-b-black font-Cinzel">
      <div className=''>
-      <img src="/Logo.svg" className="w-20 h-12" onClick={handleClick}/>
+      <Image src="/Logo.svg" width={80} height={48} onClick={handleClick} alt="Piratajuegos Logo"/>
       </div>
       <SearchBar />
       <div className="mr-20 ">

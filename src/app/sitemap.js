@@ -5,7 +5,7 @@ export default async function sitemap() {
   const req = await fetch(fetchURL)
   const posts = await req.json()
   const titulo = posts.post_title
-  const tituloMap = titulo.replace(/ /g, "-")
+  console.log(titulo)
 
   // Crear un array de objetos que representan las páginas/posts
   const pages = posts.map((post) => ({

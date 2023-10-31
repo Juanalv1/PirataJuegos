@@ -11,7 +11,7 @@ export default function SearchCard({image, title}) {
           <h3 className='font-semibold text-sm'>{title}</h3>
         </div>
         <div className='w-[40%] h-[90%] flex justify-center items-center'>
-          <img src={image} className='w-full object-cover h-full '/>
+          <img src={image} className='w-full object-cover h-full ' alt={title}/>
         </div>
       </div>
     </Link>

@@ -7,7 +7,7 @@ export default function Card ({titulo, categorias, version, image}) {
     <div className="bg-[#FFC93C] m-2  cursor-pointer w-56 flex flex-col shadow rounded-lg  border-black border-2 h-60 font-Quato flex-wrap">
       <Link href={`/juegos/${linkTitulo}`} className="w-full h-full">
         <div>
-          <img src={image} className="rounded-t-lg shadow h-28 w-full"/>
+          <img src={image} className="rounded-t-lg shadow h-28 w-full" alt={titulo}/>
         </div>
        <div className="w-full flex flex-col p-2  justify-between h-[50%] ">
             <h1 className="font-semibold text-lg">{titulo}  {version}</h1>

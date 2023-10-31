@@ -14,8 +14,9 @@ export async function generateMetadata({ params }) {
   let juego = await fetchData(titulo)
  
   return {
-    title: juego[0].post_title,
-    description: `Descarga ${juego[0].post_title} Gratis`
+    title: `Descarga ${juego[0].post_title} Gratis`,
+    description: `Descarga 
+    ${juego[0].post_title} De Forma Totalmente Gratuita, Con un Solo Link Por Mega Y Mediafire`
   }
 }
 export default async function titulo ({ params }) {

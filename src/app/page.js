@@ -16,7 +16,7 @@ export default function Home() {
           <div className='flex font-Quato'>
           <section className='px-6 py-2 flex flex-col w-3/4'>
             <BtnLogin />
-            <h2 className="text-3xl font-bold  text-center ">Añadido recientemente</h2>
+            <h2 className="text-3xl font-bold  text-center ">Juegos Añadidos recientemente</h2>
             <ul className='flex w-full m-1'>
               <ListaJuegos /> 
             </ul>
@@ -30,6 +30,6 @@ export default function Home() {
   )
 }
 export const metadata = {
-  title: 'Home - Piratajuegos',
-  description: 'Descarga Juegos Gratis',
+  title: 'Piratajuegos | Descarga Juegos Gratis',
+  description: 'Descarga Tus Juegos Favoritos De Forma Totalmente Gratuita, Con un Solo Link Por Mega Y Mediafire',
 }

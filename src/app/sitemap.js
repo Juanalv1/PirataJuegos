@@ -6,11 +6,13 @@ export default async function sitemap() {
   try {
     const req = await fetch(fetchURL);
     const posts = await req.json();
-    if (posts) {
-      // Resto del código para crear las páginas del sitemap
+    const titulo = posts.post_title
+    const tituloM = titulo.replace(/ /g, "-")
+    console.log(tituloM)
 
+      // Resto del código para crear las páginas del sitemap
       const pages = posts.map((post) => ({
-        url: `${site_URL}/juegos/${post.title.replace(/ /g, "-")}`,
+        url: `${site_URL}/juegos/${post.title}`,
         lastModified: currentDate,
         changeFrequency: 'monthly',
         priority: 1,
@@ -28,10 +30,6 @@ export default async function sitemap() {
       const allPages = [...pages, ...staticPages];
 
       return allPages;
-    } else {
-      console.error('La propiedad "post_title" no existe en los datos.');
-      return [];
-    }
   } catch (error) {
     console.error('Error al obtener datos: ', error);
     return [];

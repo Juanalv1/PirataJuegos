@@ -3,9 +3,9 @@ export default async function sitemap() {
   const site_URL = 'http://piratajuegos.com'
   const currentDate = new Date();
   const req = await fetch(fetchURL)
-  const posts = await req.json()
-  const titulo = posts.post_title
-  console.log(titulo)
+  const data = await req.json()
+  const titulo = data.post_title.replace(/ /g, "-")
+
 
   // Crear un array de objetos que representan las páginas/posts
   const pages = posts.map((post) => ({

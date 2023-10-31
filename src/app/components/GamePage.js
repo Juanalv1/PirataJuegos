@@ -31,7 +31,7 @@ export default function GamePage ({titulo, categoria, imagen, contenido, peso, i
         <p dangerouslySetInnerHTML={{ __html: contenido }} className="text-justify"></p>
       </div>
       <div className=" justify-center p-2 flex-col my-4">
-        <h2 className="text-3xl font-bold my-4 ">TRAILER</h2>
+        <h3 className="text-3xl font-bold my-4 ">TRAILER</h3>
         <div className="flex  w-full justify-center">
         {video_id && (<YouTube videoId={video_id} 
             opts={opts}/> )}

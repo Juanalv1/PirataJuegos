@@ -28,7 +28,7 @@ export default function ListaJuegos ({categoria}) {
       }
     }
   
-  }, []);
+  }, [categoria]);
 
   return (
     <div className="grid grid-auto-fit-sm w-full items-center justify-center place-items-center">

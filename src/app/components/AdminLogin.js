@@ -9,31 +9,36 @@ const AdminLogin = () => {
   const [token, setToken] = useState('')
   const [tokenToSend, setTokenToSend] = useState('')
   useEffect(() => {
-    if (typeof window !== 'undefined'){
-      setToken(JSON.parse(localStorage.getItem('token')));
-    }
-    
-    if (token) {
-      setTokenToSend(token.jwt)
-      fetch('https://piratajuegos.com/api/user', {
-      method: 'GET', // o el método que corresponda
-      headers: {
-        'Authorization': `Bearer ${tokenToSend}`,
-        'Content-Type': 'application/json'
+    const fetchUser = async () => {
+      if (typeof window !== 'undefined') {
+        setToken(JSON.parse(localStorage.getItem('token')));
+  
+        if (token) {
+          
+          try {
+            setTokenToSend(token.jwt)
+            const response = await fetch('https://piratajuegos.com/api/user', {
+              method: 'GET',
+              headers: {
+                'Authorization': `Bearer ${tokenToSend}`,
+                'Content-Type': 'application/json'
+              }
+            });
+  
+            if (response.status === 200) {
+              // El código 200 indica que es administrador
+              setIsAdmin(true);
+            }
+          } catch (error) {
+            console.error('Error al verificar el estado de administrador:', error);
+          }
+        }
       }
-    })
-    .then(res => {
-      if (res.status === 200) {
-        // El código 200 indica que es administrador
-        setIsAdmin(true);
-        
-      } 
-    })
-        .catch(error => {
-          console.error('Error al verificar el estado de administrador:', error);
-        });
-    }
-  }, [])
+    };
+  
+    fetchUser();
+  }, [setIsAdmin]);
+
   
 
   return (

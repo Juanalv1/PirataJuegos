@@ -1,11 +1,35 @@
 "use client"
-import React from 'react'
+import React, { useState } from 'react'
 import { UserProvider, useUser } from './../userContext'
 import Link from 'next/link';
 
 
 const AdminLogin = () => {
-  const { isAdmin } = useUser();
+  const [isAdmin, setIsAdmin] = useState(false)
+  const [token, setToken] = useState('')
+  const [tokenToSend, setTokenToSend] = useState('')
+  setToken(JSON.parse(localStorage.getItem('token')));
+  if (token) {
+    setTokenToSend(token.jwt)
+    fetch('https://piratajuegos.com/api/user', {
+    method: 'GET', // o el método que corresponda
+    headers: {
+      'Authorization': `Bearer ${tokenToSend}`,
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(res => {
+    if (res.status === 200) {
+      // El código 200 indica que es administrador
+      setIsAdmin(true);
+      
+    } 
+  })
+      .catch(error => {
+        console.error('Error al verificar el estado de administrador:', error);
+      });
+  }
+
   return (
     <div>
       {isAdmin && (<><button>

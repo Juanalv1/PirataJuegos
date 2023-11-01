@@ -8,7 +8,10 @@ const AdminLogin = () => {
   const [isAdmin, setIsAdmin] = useState(false)
   const [token, setToken] = useState('')
   const [tokenToSend, setTokenToSend] = useState('')
-  setToken(JSON.parse(localStorage.getItem('token')));
+  if (typeof window !== 'undefined'){
+    setToken(JSON.parse(localStorage.getItem('token')));
+  }
+  
   if (token) {
     setTokenToSend(token.jwt)
     fetch('https://piratajuegos.com/api/user', {

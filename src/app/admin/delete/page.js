@@ -3,14 +3,21 @@
 import Home from "@/app/components/BtnHome"
 import Layout from "@/app/components/Layout"
 import { UserProvider, useUser } from "@/app/userContext"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { redirect } from 'next/navigation'
 
 
 
 export default function DeletePost () {
 const [title, setTitle] = useState('')
-const { token } = useUser()
-console.log(token)
+const { isAdmin } = useUser()
+
+useEffect(() => {
+  if(!isAdmin){
+    redirect('/login')
+  }
+}, [isAdmin])
+
 
 const HandleClick = () => {
   fetch(`https://piratajuegos.com/api/posts${title}`,{ 

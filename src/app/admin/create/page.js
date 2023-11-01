@@ -1,6 +1,7 @@
 "use client"
 import dynamic from 'next/dynamic';
-import React, { useRef, useState, useEffect } from 'react';
+import { redirect } from 'next/navigation'
+import React, {useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation'; // Importa el router de Next.js
 import Home from '@/app/components/BtnHome';
 import Layout from '@/app/components/Layout';
@@ -10,14 +11,11 @@ const DynamicRichTextEditor = dynamic(() => import('@mantine/rte'), {
 });
 
 
-
-
-
-
 const CrearPublicacion = () => {
-  const { token } = useUser()
+  const { isAdmin, tokenToSend } = useUser()
+  console.log(isAdmin)
   const [editorText, setEditorText] = useState("");
-
+  
 
 
   const aLanguages = [
@@ -74,6 +72,7 @@ const CrearPublicacion = () => {
     createdAt: '',
   });
   useEffect(() => {
+    
     setFormData({ ...formData, text: editorText });
   }, [editorText]);
 
@@ -129,11 +128,11 @@ const CrearPublicacion = () => {
     e.preventDefault()
     console.log(formData)
     try {
-      const response = await fetch('https://pirataback.vercel.app/api/posts', {
+      const response = await fetch('https://piratajuegos.com/api/posts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${tokenToSend}`
         },
         body: JSON.stringify(formData),
       });
@@ -181,9 +180,16 @@ const CrearPublicacion = () => {
     }
     console.log(formData.requirements)
   }
+  useEffect(() => {
 
-  return (
+  }, [])
+  useEffect(() => {
+    if(!isAdmin){
+      redirect('/login')
+    }
+  }, [isAdmin])
 
+    return (
       <Layout>
         <div className='w-full flex flex-col'>
        <h1 className='font-bold text-xl'>Crear Nueva Publicación</h1>
@@ -391,11 +397,9 @@ const CrearPublicacion = () => {
     </form>
     </div>
       </Layout>
-
-      
-
-
-  );
+    )
+  
+  
 };
 
 export default CrearPublicacion

@@ -1,9 +1,9 @@
 "use client"
-import React from 'react'
-import { useUser } from '../userContext'
+import React, { useContext } from 'react'
+import { useAppContext } from '../Context/AppContext'
 import Link from 'next/link'
 const BtnLogin = () => {
-  const {isDev} = useUser()
+  const {isDev} = useAppContext()
   return (
     <div>
       {isDev && (

@@ -3,13 +3,13 @@ import Link from "next/link"
 import Image from "next/image"
 import SearchBar from "./SearchBar"
 import { useEffect, useState } from 'react'
-import { useUser } from "../userContext"
+import { useAppContext } from "../Context/AppContext"
 
 export default function Navbar () {
   const [results, setResults] = useState([])
   const [showCategories, setShowCategories] = useState(false)
   const [clickCounter, setClickCounter] = useState(0)
-  const { isDev, setIsDev } = useUser()
+  const { isDev, setIsDev } = useAppContext()
 
 
   const fetchData = async () => {

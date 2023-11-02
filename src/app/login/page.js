@@ -1,15 +1,19 @@
 "use client"
 
 import { useState, useEffect } from "react";
-import { UserProvider, useUser } from './../userContext'; // Solo importa UserProvider, no useUser
+import { useAppContext } from '../Context/AppContext';  
 import Layout from "../components/Layout";
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 
 export default function Login() {
+  const { isLoged, setIsLoged } = useAppContext()
   const fetchUrl = 'https://piratajuegos.com/api/login'
-  const devUrl = 'http://localhost:3002/api/login'
   const router = useRouter();
-  // const { setIsAdmin, isAdmin, token, setToken } = useUser();
+  useEffect(() => {
+    if (isLoged) {
+      router.push('/');
+    }
+  }, [isLoged]);
   const [loginForm, setLoginForm] = useState({
     username: '',
     password: ''
@@ -22,7 +26,6 @@ export default function Login() {
 
   const handleClick = async (e) => {
     e.preventDefault();
-
     try {
       const response = await fetch(fetchUrl, {
         method: 'POST',
@@ -35,8 +38,11 @@ export default function Login() {
       if (response.status === 200) {
         const data = await response.json();
         localStorage.setItem('token', JSON.stringify(data));
+        setIsLoged(true)
         router.push('/')
+
       }
+      
         else {
           // Check the response status and handle errors accordingly
           if (response.status === 401) {

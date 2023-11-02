@@ -5,14 +5,14 @@ import React, {useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation'; // Importa el router de Next.js
 import Home from '@/app/components/BtnHome';
 import Layout from '@/app/components/Layout';
-import { UserProvider, useUser } from '@/app/userContext';
+import { useAppContext } from '@/app/Context/AppContext';
 const DynamicRichTextEditor = dynamic(() => import('@mantine/rte'), {
   ssr: false, // Evita que se renderice en el servidor
 });
 
 
-const CrearPublicacion = () => {
-  const { isAdmin, tokenToSend } = useUser()
+const CrearPublicacion =  () => {
+  const { isAdmin, tokenToSend } = useAppContext()
   console.log(isAdmin)
   const [editorText, setEditorText] = useState("");
   

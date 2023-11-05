@@ -14,10 +14,15 @@ export async function generateMetadata({ params }) {
   let juego = await fetchData(titulo)
  
   return {
-    title: `Descarga ${juego[0].post_title} Gratis`,
-    description: `Descarga 
-    ${juego[0].post_title} De Forma Totalmente Gratuita, Con un Solo Link Por Mega Y Mediafire`
-  }
+    openGraph: {
+      title: `Descarga ${juego[0].post_title} Gratis | Piratajuegos`,
+      description: `Descarga 
+      ${juego[0].post_title} De Forma Totalmente Gratuita, Con un Solo Link Por Mega Y Mediafire`,
+      alternates: {
+        canonical: `/juegos/${titulo}`,
+    },
+  }}
+  
 }
 export default async function titulo ({ params }) {
   const { titulo } = params // "id" debe coincidir con el nombre del parámetro en la URL

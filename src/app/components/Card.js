@@ -13,7 +13,7 @@ export default function Card ({titulo, categorias, version, image}) {
           <Image src={srcImg[0]} className="rounded-t-lg shadow" alt={titulo} fill={true}/>
         </div>
        <div className="w-full flex flex-col p-2  justify-between h-[50%] ">
-            <h1 className="font-semibold ">{titulo}  {version}</h1>
+            <h2 className="font-semibold ">{titulo}  {version}</h2>
             <div className="flex items-end h-full flex-wrap">
             {categorias.map((categoria, index) => (        
             <CategoryBubble categoria={categoria} key={index}/>

@@ -24,7 +24,7 @@ export default function GamePage ({titulo, categoria, imagen, contenido, peso, i
     <section className="w-2/3 p-6">
     <h1 className="text-5xl font-extrabold mb-6 text-center">{titulo}</h1>
       <div className="flex justify-center items-center rounded h-80 w-3/4 mx-auto">
-        <Carrusel images={imageList} />
+        <Carrusel images={imageList} titulo={titulo}/>
       </div>
       <div className="w-full mt-4 px-2  pt-2">
       <h2 className="text-lg my-4"><b>DESCARGA {titulo} Gratis por MEGA y MEDIAFIRE</b></h2>

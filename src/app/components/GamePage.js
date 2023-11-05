@@ -9,7 +9,7 @@ export default function GamePage ({titulo, categoria, imagen, contenido, peso, i
 {
 
   const opts = { 
-    origin: 'http://localhost:3000',
+    origin: 'https://www.youtube.com',
     height: "390", 
     width: "640", 
     playerVars: {  

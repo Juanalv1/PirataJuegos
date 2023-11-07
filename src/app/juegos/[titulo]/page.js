@@ -18,7 +18,7 @@ export async function generateMetadata({ params }) {
       description: `Descarga 
       ${juego[0].post_title} De Forma Totalmente Gratuita, Con un Solo Link Por Mega Y Mediafire`,
       alternates: {
-        canonical: `/juegos/${titulo}`,
+        canonical: `https://piratajuegos.com/juegos/${titulo}`,
     },
   }
   

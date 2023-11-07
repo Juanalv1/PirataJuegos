@@ -7,7 +7,7 @@ export default function Card ({titulo, categorias, version, image}) {
   const linkTitulo = titulo.replace(/ /g, "-");
   const srcImg = image.slice(0,1)
   return (
-    <article className="bg-[#FFC93C] m-2  cursor-pointer w-52 flex flex-col shadow rounded-lg  border-black border-2 h-56 font-Quato flex-wrap relative">
+    <article className="bg-[#FFC93C] m-2  cursor-pointer w-52 flex flex-col shadow rounded-lg  border-black border-2 h-56 font-Quato flex-wrap relative hover:bg-amber-500 hover:shadow-lg">
       <Link href={`/juegos/${linkTitulo}`} className="w-full h-full">
         <div className="relative w-full h-1/2">
           <Image src={srcImg[0]} className="rounded-t-lg shadow" alt={titulo} fill={true}/>

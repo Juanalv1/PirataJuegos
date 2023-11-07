@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Card from "./Card"
 export default function ListaJuegos ({categoria}) {
   const [posts, setPosts] = useState([]);
+  const [limit, setLimit] = useState([])
   useEffect(() => {
     if (categoria) {
       try {
@@ -20,7 +21,7 @@ export default function ListaJuegos ({categoria}) {
         fetch('https://piratajuegos.com/api/posts')
         .then((res) => res.json())
         .then((data )=> {
-          setPosts(data.slice(0, 10))
+          setPosts(data.slice(0, 20))
         })
       } 
         catch (error) {
@@ -32,9 +33,9 @@ export default function ListaJuegos ({categoria}) {
 
   return (
     <div className="grid grid-auto-fit-sm w-full items-center justify-center place-items-center">
-    {posts && posts.map((post, index) => (
+    {posts && posts.slice(0, 12).map((post, index) => (
       <Card key={index} titulo={post.post_title} categorias={post.categories} image={post.img_url} version={post.version}/>
-    ))}
+  ))}
     </div>
   )
 }

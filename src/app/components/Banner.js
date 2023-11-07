@@ -24,5 +24,5 @@ export default function Banner() {
     }
   }, [banner]);
 
-  return <div className="mx-2 my-5 flex justify-center items-center text-white text-center" ref={banner}></div>;
+  return <div className=" hidden mx-2 my-5 flex justify-center items-center text-white text-center" ref={banner}></div>;
 }

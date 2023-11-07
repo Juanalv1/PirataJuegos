@@ -4,10 +4,13 @@ import Image from "next/image"
 import SearchBar from "./SearchBar"
 import { useEffect, useState } from 'react'
 import { useAppContext } from "../Context/AppContext"
+import {BiMenu} from 'react-icons/bi'
+import SideMenu from "./SideMenu"
 
 export default function Navbar () {
   const [results, setResults] = useState([])
   const [showCategories, setShowCategories] = useState(false)
+  const [showMenu, setShowMenu] = useState(false)
   const [clickCounter, setClickCounter] = useState(0)
   const { isDev, setIsDev } = useAppContext()
 
@@ -24,7 +27,14 @@ export default function Navbar () {
   useEffect(() => {
     fetchData()
   }, [])
- 
+ const handleMenuClick = () => {
+
+  if(!showMenu){
+    setShowMenu(true)
+  }else {
+    setShowMenu(false)
+  }
+ }
 const handleClick = () => {
   if (clickCounter == 10){
     setIsDev(true)
@@ -32,16 +42,18 @@ const handleClick = () => {
   } else{
     setClickCounter(clickCounter + 1)
   }
-console.log(clickCounter)
 }
   return(
-    <div className="bg-[#FFC93C] p-2 flex justify-between items-center px-4 border-b border-b-black font-Cinzel">
+    <div className="bg-[#FFC93C] p-2 flex justify-between items-center px-4 border-b border-b-black font-Cinzel w-full ">
      <div className=''>
       <Image src="/Logo.svg" width={60} height={40} onClick={handleClick} alt="Piratajuegos Logo"/>
       </div>
+      <div className="hidden sm:flex">
       <SearchBar />
-      <div className="mr-20 ">
-        <ul className="flex font-medium gap-3 text-lg m-0 relative">
+      </div>
+     
+      <div className="hidden sm:flex">
+        <ul className="flex font-medium gap-3 text-lg m-0 relative items-center ">
         <Link href={'/'}>
             <li className='p-1'>Home</li>
           </Link>
@@ -61,18 +73,17 @@ console.log(clickCounter)
         <Link href={'/dmca'}>
             <li className='p-1'>DMCA</li>
           </Link>
-          {/* <li className='p-1'>
-            Contacto
-          </li>
-          <li className='p-1'>
-            Pedidos
-          </li>
-          <li className='p-1'>
-            Programas
-          </li> */}
+         
         </ul>
+        
+         
       </div>
-      
+      {showMenu && (
+          <SideMenu showMeu={showMenu} setShowMenu={setShowMenu}/>
+        )}
+      <div className="sm:hidden ">        
+           <BiMenu className="w-9 h-9 cursor-pointer" onClick={handleMenuClick}/>
+          </div>
     </div>
   )
 }

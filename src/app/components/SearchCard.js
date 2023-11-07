@@ -6,7 +6,7 @@ export default function SearchCard({image, title}) {
   return (
     <Link href={`/juegos/${title}`}>
       <div className='w-full p-2 flex justify-between items-center h-18 border border-black
-      rounded hover:bg-gray-300 z-40'>
+      rounded hover:bg-gray-300 z-40 bg-amber-400'>
         <div className='w-[59%] h-[90%]'>
           <h3 className='font-semibold text-sm'>{title}</h3>
         </div>

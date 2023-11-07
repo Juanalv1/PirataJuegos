@@ -53,14 +53,15 @@ const handleClick = () => {
       </div>
      
       <div className="hidden sm:flex">
-        <ul className="flex font-medium gap-3 text-lg m-0 relative items-center ">
-        <Link href={'/'}>
-            <li className='p-1'>Home</li>
-          </Link>
-          <li className='cursor-pointer p-1  flex '  onMouseEnter={() => setShowCategories(true)}
+        <ul className="flex font-medium gap-3 text-lg m-0 relative items-center mr-2">
+        <li className='cursor-pointer p-1  flex '  onMouseEnter={() => setShowCategories(true)}
           onMouseLeave={() => setShowCategories(false)}>
             Categorias
           </li>
+        <Link href={'/'}>
+            <li className='p-1'>Home</li>
+          </Link>
+          
           {showCategories && results.length > 0 && (
         <ul className='absolute p-2 top-8 grid grid-auto-fit-[6rem] place-content-center items-center  w-96 bg-[#FFC93C] rounded border border-black shadow z-50'   onMouseEnter={() => setShowCategories(true)}
         onMouseLeave={() => setShowCategories(false)}>

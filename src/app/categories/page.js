@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Layout from '../components/Layout'
 import CategoryList from './../components/CategoryList'
 
-const categoriesPage = () => {
+const CategoriesPage = () => {
   const [categories, setCategories] = useState([])
   useEffect(() => {
     const fetchCategories = async () => {
@@ -28,4 +28,4 @@ const categoriesPage = () => {
   )
 }
 
-export default categoriesPage
+export default CategoriesPage

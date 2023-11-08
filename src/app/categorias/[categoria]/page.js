@@ -18,7 +18,7 @@ export default function GamesList ({params}) {
           <meta name="description" content={`${categoria}`} />
         </Head>
       <h1 className="text-2xl font-bold font-Cinzel p-2">{categoria}</h1>
-      <ListaJuegos categoria={categoria}>
+      <ListaJuegos category={categoria}>
       </ListaJuegos>
     </Layout>
 

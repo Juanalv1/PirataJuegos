@@ -1,13 +1,12 @@
 "use client"
 import React, { useEffect, useState } from "react";
 import Card from "./Card"
-export default function ListaJuegos ({categoria}) {
+export default function ListaJuegos ({category}) {
   const [posts, setPosts] = useState([]);
-  const [limit, setLimit] = useState([])
   useEffect(() => {
-    if (categoria) {
+    if (category) {
       try {
-        fetch(`https://piratajuegos.com/api/posts/categories/${categoria}`)
+        fetch(`https://piratajuegos.com/api/posts?categories=${category}`)
         .then((res) => res.json())
         .then((data )=> {
           setPosts(data.slice(0, 20))
@@ -28,8 +27,8 @@ export default function ListaJuegos ({categoria}) {
         console.error("Error fetching data:", error);
       }
     }
-  
-  }, [categoria]);
+
+  }, [category]);
 
   return (
     <div className="grid grid-auto-fit-sm w-full items-center justify-center place-items-center">

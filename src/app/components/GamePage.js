@@ -5,14 +5,14 @@ import Carrusel from "./Carrusel"
 import { YouTubeEmbed } from '@next/third-parties/google'
 import Banner from "./Banner"
 import './../globals.css'
+import RelatedGames from "./RelatedGames"
 
-export default function GamePage ({titulo, categoria, imagen, contenido, peso, idiomas, fechaLanzamiento, requirements, desarrollador, dlink, video_id}) 
+export default function GamePage ({titulo, categorias, imagen, contenido, peso, idiomas, fechaLanzamiento, requirements, desarrollador, dlink, video_id}) 
 {
 
   const formattedRequirements = JSON.parse(requirements);
    // Elimina el primer elemento del array de imágenes
    const imageList = [...imagen.slice(1)];
-
   return(
     <div className="w-full font-Quato items-center">
     <section className="w-full py-2 px-1 flex flex-col">
@@ -52,7 +52,7 @@ export default function GamePage ({titulo, categoria, imagen, contenido, peso, i
             <li className="flex justify-between"><span className="font-semibold ">Peso:</span><span>{peso}</span> </li>
             <li className="flex justify-between "><span className="font-semibold mr-2">Idiomas:</span> <span className="text-end">{idiomas}</span></li>
             <li className="flex justify-between"><span className="font-semibold mr-2">Fecha de lanzamiento:</span><span className="text-end">{fechaLanzamiento}</span> </li>
-            <li className="flex justify-between"><span className="font-semibold mr-2">Categorias: </span><span className="text-end">{categoria}</span></li>
+            <li className="flex justify-between"><span className="font-semibold mr-2">Categorias: </span><span className="text-end">{categorias}</span></li>
             <li className="flex justify-between"><span className="font-semibold mr-2">Desarrollador:</span><span className="text-end">{desarrollador}</span></li>
           </ul>
         </div> 
@@ -102,6 +102,9 @@ export default function GamePage ({titulo, categoria, imagen, contenido, peso, i
         <button className="py-2 px-3 tracking-wider mx-auto md:mx-0 mt-4 md:mt-0  bg-[#0735B3] self-center rounded-xl font-bold text-white flex items-center gap-1 text-lg shadow" > <HiDownload className="w-6 mr-1 h-6"/> DESCARGAR </button>
         </a>
         </div>
+      </div>
+      <div>
+        <RelatedGames categories={categorias}/>
       </div>
     </section>
     </div>

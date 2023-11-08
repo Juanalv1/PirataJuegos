@@ -63,7 +63,7 @@ const handleClick = () => {
           </Link>
           
           {showCategories && results.length > 0 && (
-        <ul className='absolute p-2 top-8 grid grid-auto-fit-[6rem] place-content-center items-center  w-96 bg-[#FFC93C] rounded border border-black shadow z-50'   onMouseEnter={() => setShowCategories(true)}
+        <ul className='absolute p-2 top-10 grid grid-auto-fit-[6rem] place-content-center items-center  w-96 bg-[#FFC93C] rounded border border-black shadow z-50 right-24'   onMouseEnter={() => setShowCategories(true)}
         onMouseLeave={() => setShowCategories(false)}>
           {results.map((category) => (
             <Link href={`/categorias/${category.category_name}`} key={category.category_id} >    

@@ -18,7 +18,9 @@ const SideMenu = ({showMeu, setShowMenu}) => {
       <Link href={'/'}>
         <li className='p-1'>Home</li>
       </Link>
+      <Link href={'/categories'}>
       <li className='p-1'>Categorias</li>
+      </Link>
       <Link href={'/dmca'}>
         <li className='p-1'>DMCA</li>
       </Link>

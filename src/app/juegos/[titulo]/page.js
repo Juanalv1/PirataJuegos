@@ -32,7 +32,7 @@ const dia = fechaBD.getDate(); //
 const mes = fechaBD.getMonth() + 1; // 
 const año = fechaBD.getFullYear(); // 
 const fechaFormateada = `${dia}/${mes}/${año}`;
-const formattedCategories = juego[0].categories.join(',');
+const formattedCategories = juego[0].categories.join(', ');
 const formattedLanguages = juego[0].languages.join(' ');
 console.log(`formateadas ${formattedCategories}`)
 

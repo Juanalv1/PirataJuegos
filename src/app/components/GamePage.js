@@ -52,7 +52,7 @@ export default function GamePage ({titulo, categorias, imagen, contenido, peso, 
             <li className="flex justify-between"><span className="font-semibold ">Peso:</span><span>{peso}</span> </li>
             <li className="flex justify-between "><span className="font-semibold mr-2">Idiomas:</span> <span className="text-end">{idiomas}</span></li>
             <li className="flex justify-between"><span className="font-semibold mr-2">Fecha de lanzamiento:</span><span className="text-end">{fechaLanzamiento}</span> </li>
-            <li className="flex justify-between"><span className="font-semibold mr-2">Categorias: </span><span className="text-end">{categorias}</span></li>
+            <li className="flex justify-between flex-wrap"><span className="font-semibold mr-2">Categorias: </span><span className="text-end">{categorias}</span></li>
             <li className="flex justify-between"><span className="font-semibold mr-2">Desarrollador:</span><span className="text-end">{desarrollador}</span></li>
           </ul>
         </div> 

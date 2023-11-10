@@ -1,3 +1,4 @@
+"use client"
 export default async function sitemap() {
   const fetchURL = 'http://piratajuegos.com/api/posts';
   const site_URL = 'https://piratajuegos.com';
@@ -12,7 +13,7 @@ export default async function sitemap() {
         {
         url: `${site_URL}/juegos/${post.post_title.replace(/ /g, "-")}`,
         lastModified: currentDate,
-        changeFrequency: 'monthly',
+        changeFrequency: 'daily',
         priority: 1,
       }));
       
@@ -20,7 +21,7 @@ export default async function sitemap() {
         {
           url: 'https://piratajuegos.com',
           lastModified: currentDate,
-          changeFrequency: 'monthly',
+          changeFrequency: 'daily',
           priority: 1,
         },
       ];

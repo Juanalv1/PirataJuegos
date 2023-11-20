@@ -1,6 +1,6 @@
-"use client"
+
 export default async function sitemap() {
-  const fetchURL = 'http://piratajuegos.com/api/posts';
+  const fetchURL = 'https://piratajuegos.com/api/posts';
   const site_URL = 'https://piratajuegos.com';
   const currentDate = new Date();
 

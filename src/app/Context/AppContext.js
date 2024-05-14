@@ -4,44 +4,27 @@ import { createContext, useContext, useEffect, useState } from 'react';
 export const AppContext = createContext({});
 
 export const AppContextProvider = ({ children }) => {
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [isLoged, setIsLoged] = useState(false);
-  const [tokenToSend, setTokenToSend] = useState('')
-  const [searchValue, setSearchValue] = useState('')
-  const [isDev, setIsDev] = useState(false)
-  useEffect(() => {
-  let localToken = {}
-  let token = ''
-    if (typeof window !== 'undefined') {
-      localToken = JSON.parse(localStorage.getItem('token'));
-    }
-    if(localToken) {
-      token = localToken.jwt
-      setTokenToSend(token)
-      fetchUser(token)
-    }
-  }, [isLoged]); 
-  const fetchUser = async (token) => {
-    try {
-      const response = await fetch('https://piratajuegos.com/api/user', {
-        method: 'GET',
-        headers: {
-          'Authorization': `Bearer ${token}`,
-          'Content-Type': 'application/json'
-        }
-      });
+  const [session, setSession] = useState(null)
+  const [posts, setPosts] = useState([])
 
-      if (response.status === 200) {
-        setIsAdmin(true);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_FETCH_URL}/api/v1/posts`)
+        const resJSON = await res.json()
+        setPosts(resJSON.slice(0, 20))
+      } catch (error) {
+        console.error("Error fetching data:", error);
       }
-    } catch (error) {
-      console.error('Error al verificar el estado de administrador:', error);
     }
-  };
- 
+    if (posts.length == 0) {
+      fetchData()
+    }
+  }, [posts])
+
 
   return (
-    <AppContext.Provider value={{ isAdmin, setIsAdmin, searchValue, setSearchValue, isDev, setIsDev, tokenToSend, isLoged, setIsLoged }}>
+    <AppContext.Provider value={{session, setSession, posts }}>
       {children}
     </AppContext.Provider>
   );}

@@ -2,18 +2,17 @@
 
 import { useState, useEffect } from "react";
 import { useAppContext } from '../Context/AppContext';  
-import Layout from "../components/Layout";
+import Layout from "../../components/Layout";
 import { redirect, useRouter } from 'next/navigation';
 
 export default function Login() {
-  const { isLoged, setIsLoged } = useAppContext()
-  const fetchUrl = 'https://piratajuegos.com/api/login'
+  const { session, setSession } = useAppContext()
   const router = useRouter();
   useEffect(() => {
-    if (isLoged) {
+    if (session) {
       router.push('/');
     }
-  }, [isLoged]);
+  }, [session]);
   const [loginForm, setLoginForm] = useState({
     username: '',
     password: ''
@@ -27,7 +26,7 @@ export default function Login() {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(fetchUrl, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_FETCH_URL}/api/v1/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -37,10 +36,9 @@ export default function Login() {
 
       if (response.status === 200) {
         const data = await response.json();
-        localStorage.setItem('token', JSON.stringify(data));
-        setIsLoged(true)
+        console.log(data)
+        setSession(data)
         router.push('/')
-
       }
       
         else {
@@ -62,8 +60,8 @@ export default function Login() {
   return (
 
       <Layout>
-        <div className="font-Quato">
-          <form>
+        <div className="font-Quato p-4">
+          <form className="flex flex-col">
             <label htmlFor="username">User</label>
             <input
               type="text"
@@ -80,7 +78,7 @@ export default function Login() {
               value={loginForm.password}
               onChange={handleChange}
             />
-            <button onClick={handleClick}>Login</button>
+            <button onClick={handleClick} className="bg-green-500 text-white px-4 py-1 rounde mt-4 mx-20">Login</button>
           </form>
         </div>
       </Layout>

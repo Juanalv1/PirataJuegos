@@ -1,4 +1,13 @@
+/* asdasd */
+
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Quattrocento:wght@400;700&display=swap');
+
+/* asdasd */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+input:focus {
+  outline:none !important;
+}

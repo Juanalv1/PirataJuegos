@@ -1,7 +1,6 @@
 
 import './globals.css'
 import { AppContextProvider } from './Context/AppContext'
-import Script from 'next/script'
 
 
 export default function RootLayout({ children }) {
@@ -11,7 +10,6 @@ export default function RootLayout({ children }) {
         <AppContextProvider> 
         {children}</AppContextProvider> 
         </body>
-        <Script src="//pl21111464.toprevenuegate.com/9c30a0f07e3e73bde234faed95ab8d55/invoke.js" />
       </html>
   )
 }

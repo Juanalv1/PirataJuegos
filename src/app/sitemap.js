@@ -5,7 +5,7 @@ export default async function sitemap() {
   const currentDate = new Date();
 
   try {
-    const req = await fetch(`http://localhost:3000/api/v1/posts`, {next: {
+    const req = await fetch(`${process.env.NEXT_PUBLIC_FETCH_URL}/api/v1/posts`, {next: {
       revalidate: 3600
     }});
     const posts = await req.json();

@@ -13,10 +13,12 @@ export default async function Home() {
       revalidate: 60
     }})
     const resJSON = await res.json()
+    console.log(resJSON)
     return resJSON
     }
 
   const posts = await getData()
+
   return (
       <Layout>
           <div className='flex flex-col md:flex-row font-Quato '>

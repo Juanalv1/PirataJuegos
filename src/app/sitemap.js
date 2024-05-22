@@ -1,10 +1,14 @@
 
+export const dynamic = 'force-dynamic';
+
 export default async function sitemap() {
   const site_URL = 'https://piratajuegos.com';
   const currentDate = new Date();
 
   try {
-    const req = await fetch(`http://localhost:3000/api/v1/posts`);
+    const req = await fetch(`http://localhost:3000/api/v1/posts`, {next: {
+      revalidate: 3600
+    }});
     const posts = await req.json();
 
       // Resto del código para crear las páginas del sitemap

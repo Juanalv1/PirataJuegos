@@ -11,14 +11,14 @@ export async function generateMetadata({ params }) {
   const juego = await res.json()
 
   return {
-      title: `Descarga ${decodeURIComponent(titulo).replace(/-/g, " ")} Gratis | Piratajuegos`,
-      description: `Descarga ${decodeURIComponent(titulo).replace(/-/g, " ")} Gratis | Piratajuegos | De Forma Totalmente Gratuita, por Mega y Mediafire. Solo en Piratajuegos. Descarga y juega. Libre de virus`,
+      title: `Descarga ${decodeURIComponent(titulo).replace(/-/g, " ")} Gratis Para PC| Piratajuegos`,
+      description: `Descarga ${decodeURIComponent(titulo).replace(/-/g, " ")} Gratis Para PC| Piratajuegos | De Forma Totalmente Gratuita, por Mega y Mediafire. Solo en Piratajuegos. Descarga y juega. Libre de virus`,
       alternates: {
         canonical: `https://piratajuegos.com/juegos/${titulo}`,
     },
     openGraph: {
-      title: `Descarga ${decodeURIComponent(titulo).replace(/-/g, " ")} Gratis | Piratajuegos`,
-      description: `Descarga ${decodeURIComponent(titulo).replace(/-/g, " ")} Gratis | Piratajuegos | De Forma Totalmente Gratuita, por Mega y Mediafire. Solo en Piratajuegos. Descarga y juega. Libre de virus`,
+      title: `Descarga ${decodeURIComponent(titulo).replace(/-/g, " ")} Gratis Para PC| Piratajuegos`,
+      description: `Descarga ${decodeURIComponent(titulo).replace(/-/g, " ")} Gratis Para PC| Piratajuegos | De Forma Totalmente Gratuita, por Mega y Mediafire. Solo en Piratajuegos. Descarga y juega Libre de virus`,
       type: 'website',
       images: juego.img_url
       

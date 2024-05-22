@@ -42,14 +42,14 @@ export default async function Home() {
   )
 }
 export const metadata = {
-  title: 'Piratajuegos | Descarga Juegos Gratis',
-  description: 'Descarga Tus Juegos Favoritos De Forma Totalmente Gratuita, Con un Solo Link Por Mega Y Mediafire. Descarga y juega, totalmente libre de virus',
+  title: 'Piratajuegos | Descarga Juegos Gratis para PC',
+  description: 'Descarga Tus Juegos Favoritos Para Pc De Forma Totalmente Gratuita, Con un Solo Link Por Mega Y Mediafire. Descarga y juega, totalmente libre de virus',
   alternates: {
     canonical: 'https://piratajuegos.com',
   },
   openGraph: {
-    title: `Piratajuegos | Descarga Juegos Gratis`,
-    description: `Descarga Tus Juegos Favoritos De Forma Totalmente Gratuita, Con un Solo Link Por Mega Y Mediafire. Descarga y juega, totalmente libre de virus`,
+    title: `Piratajuegos | Descarga Juegos Gratis para PC`,
+    description: `Descarga Tus Juegos Favoritos Para Pc De Forma Totalmente Gratuita, Con un Solo Link Por Mega Y Mediafire. Descarga y juega, totalmente libre de virus`,
     type: 'website',
     images: "https://i.postimg.cc/YCjFc6TD/log-yt.png"
     

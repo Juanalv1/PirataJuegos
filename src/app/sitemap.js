@@ -5,9 +5,7 @@ export default async function sitemap() {
   const currentDate = new Date();
 
   try {
-    const req = await fetch(`${process.env.NEXT_PUBLIC_FETCH_URL}/api/v1/posts`, {next: {
-      revalidate: 3600
-    }});
+    const req = await fetch(`${process.env.NEXT_PUBLIC_FETCH_URL}/api/v1/posts`);
     const posts = await req.json();
 
       // Resto del código para crear las páginas del sitemap
@@ -23,7 +21,7 @@ export default async function sitemap() {
         {
           url: 'https://piratajuegos.com',
           lastModified: currentDate,
-          changeFrequency: 'daily',
+          changeFrequency: 'monthly',
           priority: 1,
         },
       ];

@@ -3,7 +3,9 @@ export default async function sitemap() {
   const currentDate = new Date().toISOString();
 
   try {
-    const req = await fetch(`${process.env.NEXT_PUBLIC_FETCH_URL}/api/v1/posts`);
+    const req = await fetch(`${process.env.NEXT_PUBLIC_FETCH_URL}/api/v1/posts`, {next: {
+      revalidate: 3600
+    }});
     const posts = await req.json();
 
     const escapeXml = (unsafe) => {

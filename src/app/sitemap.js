@@ -1,3 +1,5 @@
+export const revalidate = 3600;
+
 export default async function sitemap() {
   const site_URL = 'https://piratajuegos.com';
   const currentDate = new Date().toISOString();
